@@ -43,7 +43,7 @@ export default em(
 
     // -- indexes
     index(pages).on(["active"]);
-    index(pages).on(["handle"]).unique;
+    index(pages).on(["handle"]);
     index(pages).on(["order"]);
   },
 ).toJSON();
