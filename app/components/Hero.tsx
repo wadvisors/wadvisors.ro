@@ -43,13 +43,13 @@ export default function Hero() {
               h1: {
                 props: {
                   className:
-                    "font-heading-1 text-4xl text-pretty md:text-7xl md:leading-tight",
+                    "font-heading-1 text-4xl text-pretty md:text-7xl md:leading-tight inline-block backdrop-blur-xl rounded-2xl leading-loose decoration-clone",
                 },
               },
               p: {
                 props: {
                   className:
-                    "mt-8 text-lg tracking-widest text-pretty md:max-w-[550px] md:text-2xl",
+                    "mt-8 text-lg tracking-widest text-pretty md:max-w-[550px] md:text-2xl inline-block backdrop-blur-xl ",
                 },
               },
               a: {
