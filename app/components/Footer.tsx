@@ -65,10 +65,14 @@ export default function Footer() {
         </div>
         <div className="font-extralight text-xs opacity-50 font-mono flex gap-2 items-center justify-center">
           <em className="not-italic">
-            Made with{" "}
-            <span className="text-red-600 animation animate-pulse">♥</span> &{" "}
-            <a className="underline" target="_blank" href="https://bknd.io">
-              bknd.io
+            Built on{" "}
+            <a
+              className="hover:underline"
+              target="_blank"
+              href="https://bknd.io"
+            >
+              Bknd{" "}
+              <span className="text-red-600 animation animate-pulse">♥</span>
             </a>
           </em>
           <span className="bg-white rounded p-1">{env.GIT_BRANCH}</span>
