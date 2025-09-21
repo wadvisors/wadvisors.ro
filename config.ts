@@ -58,13 +58,6 @@ export default {
       },
       options: {
         mode: "code",
-        seed: async (ctx: ModuleBuildContext) => {
-          await ctx.em
-            .mutator("articles")
-            .insertMany([
-              { title: "First post", title_t: { en: "title", ro: "Titlu" } },
-            ]);
-        },
       },
       onBuilt: async (app) => {
         app.emgr.onEvent(
