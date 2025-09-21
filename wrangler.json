@@ -74,10 +74,7 @@
           "binding": "BUCKET",
           "bucket_name": "production-bucket"
         }
-      ],
-      "images": {
-        "binding": "IMAGES"
-      }
+      ]
     }
   }
 }

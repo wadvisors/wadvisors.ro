@@ -1,42 +1,43 @@
 {
-   "name": "bknd-react-router-cloudflare",
-   "private": true,
-   "type": "module",
-   "scripts": {
-      "dev": "react-router dev",
-      "build": "react-router build",
-      "preview": "npm run build && vite preview",
-      "deploy:staging": "wrangler deploy --env staging",
-      "deploy:production": "wrangler deploy --env staging",
-      "cf-typegen": "wrangler types",
-      "bknd": "PROXY=1 node --experimental-strip-types node_modules/.bin/bknd",
-      "typegen": "npm run cf-typegen && react-router typegen",
-      "predev": "npm run typegen",
-      "typecheck": "npm run typegen && tsc"
-   },
-   "dependencies": {
-      "@react-router/fs-routes": "^7.8.0",
-      "bknd": "^0.18.0-rc.2",
-      "isbot": "^5.1.29",
-      "lucide-react": "^0.544.0",
-      "markdown-to-jsx": "^7.7.13",
-      "react": "^19.1.1",
-      "react-dom": "^19.1.1",
-      "react-router": "^7.8.0"
-   },
-   "devDependencies": {
-      "@cloudflare/vite-plugin": "^1.11.2",
-      "@hono/vite-dev-server": "^0.20.1",
-      "@react-router/dev": "^7.8.0",
-      "@tailwindcss/vite": "^4.1.11",
-      "@types/node": "^24",
-      "@types/react": "^19.1.10",
-      "@types/react-dom": "^19.1.7",
-      "react-router-devtools": "^5.0.6",
-      "tailwindcss": "^4.1.11",
-      "typescript": "^5.9.2",
-      "vite": "^7.1.2",
-      "vite-tsconfig-paths": "^5.1.4",
-      "wrangler": "^4.33.1"
-   }
+  "name": "bknd-react-router-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev",
+    "build:staging": "react-router build --mode staging",
+    "build:production": "react-router build --mode production",
+    "preview": "npm run build && vite preview",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:production": "wrangler deploy --env staging",
+    "cf-typegen": "wrangler types",
+    "bknd": "PROXY=1 node --experimental-strip-types node_modules/.bin/bknd",
+    "typegen": "npm run cf-typegen && react-router typegen",
+    "predev": "npm run typegen",
+    "typecheck": "npm run typegen && tsc"
+  },
+  "dependencies": {
+    "@react-router/fs-routes": "^7.8.0",
+    "bknd": "^0.18.0-rc.2",
+    "isbot": "^5.1.29",
+    "lucide-react": "^0.544.0",
+    "markdown-to-jsx": "^7.7.13",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router": "^7.8.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.11.2",
+    "@hono/vite-dev-server": "^0.20.1",
+    "@react-router/dev": "^7.8.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "react-router-devtools": "^5.0.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.2",
+    "vite-tsconfig-paths": "^5.1.4",
+    "wrangler": "^4.33.1"
+  }
 }
