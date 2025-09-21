@@ -10,11 +10,11 @@ export default function Hero() {
   return (
     <section className="relative z-10 flex min-h-[100lvh] -mt-16 w-full">
       <div
-        className={`absolute -z-10 h-full min-h-full w-full overflow-hidden bg-cover bg-no-repeat`}
+        className={`absolute -z-10 h-full min-h-full w-full overflow-hidden bg-fill bg-no-repeat`}
         style={{
           backgroundImage: `url("/api/_plugin/image/optimize/${encodeURIComponent(
             page.cover.path,
-          )}")`,
+          )}?width=1920&height=1080&fit=cover")`,
         }}
       >
         {/*<Image
