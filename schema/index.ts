@@ -1,0 +1,49 @@
+import { em, index } from "bknd";
+
+import pages from "./pages";
+import articles from "./articles";
+import clients from "./clients";
+import portfolio from "./portfolio";
+import press from "./press";
+import media from "./media";
+import users from "./users";
+import team from "./team";
+
+export default em(
+  {
+    ...articles,
+    ...pages,
+    ...press,
+    ...portfolio,
+    ...clients,
+    ...team,
+    ...users,
+    ...media,
+  },
+  ({ relation }, { pages, articles, portfolio, clients, users, media }) => {
+    // -- relations
+    relation(pages).polyToOne(media, {
+      mappedBy: "cover",
+    });
+    relation(pages).polyToMany(media, {
+      mappedBy: "gallery",
+    });
+
+    relation(articles).manyToMany(users).polyToOne(media, {
+      mappedBy: "cover",
+    });
+    relation(users).polyToOne(media, {
+      mappedBy: "avatar",
+    });
+    relation(portfolio).manyToOne(clients);
+
+    relation(clients).polyToOne(media, {
+      mappedBy: "logo",
+    });
+
+    // -- indexes
+    index(pages).on(["active"]);
+    index(pages).on(["handle"]).unique;
+    index(pages).on(["order"]);
+  },
+).toJSON();

@@ -1,0 +1,83 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wadvisors-worker",
+  "main": "app/worker.ts",
+  "compatibility_date": "2025-08-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "public"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "preview_urls": false,
+  "vars": {
+    "ENVIRONMENT": "development",
+    "SECRET": "change-me",
+    "GIT_BRANCH": "$WORKERS_CI_BRANCH",
+    "GIT_SHA": "$WORKERS_CI_COMMIT_SHA"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "database",
+      "database_id": "81d8dfcc-4eaf-4453-8f0f-8f6d463fb867"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "bucket"
+    }
+  ],
+  "env": {
+    "staging": {
+      "name": "staging-worker",
+      "workers_dev": false,
+      "route": {
+        "pattern": "staging.wadvisors.ro",
+        "custom_domain": true,
+        "zone_name": "wadvisors.ro"
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "staging-db",
+          "database_id": "23f67865-2ce3-421b-b9d3-7e51510f1752"
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "BUCKET",
+          "bucket_name": "staging-bucket"
+        }
+      ]
+    },
+    "production": {
+      "name": "production-worker",
+      "workers_dev": false,
+      "route": {
+        "pattern": "production.wadvisors.ro",
+        "custom_domain": true,
+        "zone_name": "wadvisors.ro"
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "production-db",
+          "database_id": "45a178bc-3127-4e33-a014-f6ebd11da5ff"
+        }
+      ],
+      "r2_buckets": [
+        {
+          "binding": "BUCKET",
+          "bucket_name": "production-bucket"
+        }
+      ],
+      "images": {
+        "binding": "IMAGES"
+      }
+    }
+  }
+}
