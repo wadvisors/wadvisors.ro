@@ -19,7 +19,7 @@ export default {
         data: schema,
         server: {
           mcp: {
-            enabled: false,
+            enabled: true,
           },
         },
         auth: {
