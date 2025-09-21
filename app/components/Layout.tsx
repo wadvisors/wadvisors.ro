@@ -10,11 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {isNavigating && (
-        <span className="bg-red-400 absolute top-0 right-0 self-center">
-          Loading...
-        </span>
-      )}
+      {isNavigating && <span className="fixed z-20 bottom-4 right-4">...</span>}
       <Nav />
       <main className="flex-grow">{children}</main>
       <Footer />
