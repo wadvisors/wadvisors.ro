@@ -5,7 +5,7 @@ import schema from "./schema/index";
 
 export default {
   d1: {
-    session: false,
+    session: true,
   },
   buildConfig: {
     // this instructs the build command to always perform a db sync.
