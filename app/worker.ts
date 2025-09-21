@@ -50,7 +50,7 @@ export default new Hono<{
       request,
     });
 
-    console.log("---> import meta", JSON.stringify(import.meta.env));
+    console.log("---> import meta", JSON.stringify(c.env));
 
     if (url.pathname !== "/") {
       // try bknd api
