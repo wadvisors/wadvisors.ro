@@ -8,7 +8,9 @@
     "build:production": "react-router build --mode production",
     "preview": "npm run build && vite preview",
     "cf-typegen": "wrangler types",
-    "bknd": "PROXY=1 node --experimental-strip-types node_modules/.bin/bknd",
+    "bknd": "npx tsx node_modules/.bin/bknd",
+    "bknd:staging": "CLOUDFLARE_ENV=staging npx tsx node_modules/.bin/bknd",
+    "deploy": "npm run build:staging && npm run bknd:staging -- sync --force && wrangler deploy",
     "typegen": "npm run cf-typegen && react-router typegen",
     "predev": "npm run typegen",
     "typecheck": "npm run typegen && tsc"
