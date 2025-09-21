@@ -60,15 +60,21 @@ export default function Footer() {
             <span className="sr-only">Instagram</span>
           </a>
         </div>
-
-        <div className="mt-4 mb-2 text-center text-sm opacity-80 flex flex-col">
-          &copy; 2025{" "}
-          <small className="font-light mt-2 mx-auto opacity-50 font-mono flex gap-2">
-            <span className="bg-white rounded p-1">{env.GIT_BRANCH}</span>
-            <span className="bg-white rounded p-1">
-              {env.GIT_SHA.slice(0, 7)}
-            </span>
-          </small>
+        <div className="mt-6 mb-2 text-center text-sm opacity-80 flex items-center justify-center">
+          &copy; 2025
+        </div>
+        <div className="font-extralight text-xs opacity-50 font-mono flex gap-2 items-center justify-center">
+          <em className="not-italic">
+            Made with{" "}
+            <span className="text-red-600 animation animate-pulse">♥</span> &{" "}
+            <a className="underline" href="https://bknd.io">
+              bknd.io
+            </a>
+          </em>
+          <span className="bg-white rounded p-1">{env.GIT_BRANCH}</span>
+          <span className="bg-white rounded p-1">
+            {env.GIT_SHA.slice(0, 7)}
+          </span>
         </div>
       </div>
     </footer>
