@@ -14,7 +14,7 @@ export default function Hero() {
         style={{
           backgroundImage: `url("/api/_plugin/image/optimize/${encodeURIComponent(
             page.cover.path,
-          )}?width=1080&height=960&fit=cover")`,
+          )}")`,
         }}
       >
         {/*<Image
