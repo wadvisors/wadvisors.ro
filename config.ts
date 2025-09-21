@@ -28,7 +28,7 @@ export default {
             issuer: "wadvisors",
             secret: env.SECRET,
           },
-          guard: { enabled: true },
+          guard: { enabled: false },
           roles: {
             EDITOR: {
               is_default: true,
