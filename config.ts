@@ -10,7 +10,7 @@ export default {
   buildConfig: {
     // this instructs the build command to always perform a db sync.
     // if you have CI/CD in place, you'd want to perform the sync on the CI/CD server instead using `npx bknd sync`
-    sync: true,
+    sync: false,
   },
   app: (env) => {
     return {
