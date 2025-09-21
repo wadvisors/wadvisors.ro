@@ -26,9 +26,11 @@ export const links: Route.LinksFunction = () => [
 export async function loader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
   const api = args.context.bknd.api;
+  const env = args.context.cloudflare.env;
 
   return {
     language,
+    env,
     user: api.getUser(),
   };
 }

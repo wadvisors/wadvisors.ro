@@ -1,8 +1,11 @@
+import { useRouteLoaderData } from "react-router";
 import SiteLogo from "./SiteLogo";
 import FooterLink from "./FooterLink";
 import { Instagram, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
+  const { env } = useRouteLoaderData("root");
+
   return (
     <footer className="bg-base-100/40 mt-12 flex flex-col items-center justify-center py-8">
       <div className="site-container">
@@ -59,7 +62,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-4 mb-2 text-center text-sm opacity-80">
-          &copy; 2025
+          &copy; 2025{" "}
+          <small className="font-light mt-2 block opacity-50 font-mono">
+            {env.GIT_BRANCH} / {env.GIT_SHA}
+          </small>
         </div>
       </div>
     </footer>
