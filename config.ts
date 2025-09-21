@@ -60,34 +60,34 @@ export default {
         mode: "code",
       },
       onBuilt: async (app) => {
-        // app.emgr.onEvent(
-        //   DatabaseEvents.MutatorInsertBefore,
-        //   async ({ params: { entity, data } }) => {
-        //     if (entity.name !== "pages") return { ...data };
-        //     return {
-        //       ...data,
-        //       ...(data.title_t?.en && {
-        //         title: data.title_t.en,
-        //         handle: slugify(data.title_t.en),
-        //       }),
-        //     };
-        //   },
-        //   "sync",
-        // );
-        // app.emgr.onEvent(
-        //   DatabaseEvents.MutatorUpdateBefore,
-        //   async ({ params: { entity, data } }) => {
-        //     if (entity.name !== "pages") return { ...data };
-        //     return {
-        //       ...data,
-        //       ...(data.title_t?.en && {
-        //         title: data.title_t.en,
-        //         handle: slugify(data.title_t.en),
-        //       }),
-        //     };
-        //   },
-        //   "sync",
-        // );
+        app.emgr.onEvent(
+          DatabaseEvents.MutatorInsertBefore,
+          async ({ params: { entity, data } }) => {
+            if (entity.name !== "pages") return { ...data };
+            return {
+              ...data,
+              ...(data.title_t?.en && {
+                title: data.title_t.en,
+                handle: slugify(data.title_t.en),
+              }),
+            };
+          },
+          "sync",
+        );
+        app.emgr.onEvent(
+          DatabaseEvents.MutatorUpdateBefore,
+          async ({ params: { entity, data } }) => {
+            if (entity.name !== "pages") return { ...data };
+            return {
+              ...data,
+              ...(data.title_t?.en && {
+                title: data.title_t.en,
+                handle: slugify(data.title_t.en),
+              }),
+            };
+          },
+          "sync",
+        );
       },
     };
   },
