@@ -7,8 +7,6 @@
     "build:staging": "react-router build --mode staging",
     "build:production": "react-router build --mode production",
     "preview": "npm run build && vite preview",
-    "deploy:staging": "wrangler deploy --env staging",
-    "deploy:production": "wrangler deploy --env staging",
     "cf-typegen": "wrangler types",
     "bknd": "PROXY=1 node --experimental-strip-types node_modules/.bin/bknd",
     "typegen": "npm run cf-typegen && react-router typegen",

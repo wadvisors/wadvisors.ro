@@ -44,7 +44,7 @@
         {
           "binding": "DB",
           "database_name": "staging-db",
-          "database_id": "23f67865-2ce3-421b-b9d3-7e51510f1752"
+          "database_id": "e410ada7-5a2a-4928-9540-dda77ca184d2"
         }
       ],
       "r2_buckets": [
@@ -52,7 +52,13 @@
           "binding": "BUCKET",
           "bucket_name": "staging-bucket"
         }
-      ]
+      ],
+      "vars": {
+        "ENVIRONMENT": "staging",
+        "SECRET": "change-me",
+        "GIT_BRANCH": "$WORKERS_CI_BRANCH",
+        "GIT_SHA": "$WORKERS_CI_COMMIT_SHA"
+      }
     },
     "production": {
       "name": "production-worker",
@@ -74,7 +80,13 @@
           "binding": "BUCKET",
           "bucket_name": "production-bucket"
         }
-      ]
+      ],
+      "vars": {
+        "ENVIRONMENT": "production",
+        "SECRET": "change-me",
+        "GIT_BRANCH": "$WORKERS_CI_BRANCH",
+        "GIT_SHA": "$WORKERS_CI_COMMIT_SHA"
+      }
     }
   }
 }
