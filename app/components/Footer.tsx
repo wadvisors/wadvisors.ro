@@ -76,7 +76,7 @@ export default function Footer() {
             </a>
           </em>
           <span className="bg-white rounded p-1">{env.WORKERS_CI_BRANCH}</span>
-          <span className="bg-white rounded p-1">
+          <span className="bg-white rounded p-1 slashed-zero proportional-nums">
             {env.WORKERS_CI_COMMIT_SHA.slice(0, 7)}
           </span>
         </div>
