@@ -4,7 +4,7 @@ import { Globe } from "lucide-react";
 export default function LangSwitcher() {
   const { language } = useRouteLoaderData("root");
 
-  const switchToLanguage = language === "en" ? "ro" : null;
+  const switchToLanguage = language === "en" ? "ro" : "en";
 
   return (
     <Link
