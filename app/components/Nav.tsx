@@ -9,7 +9,7 @@ export default function Nav() {
   const { pages } = useRouteLoaderData("routes/_");
 
   return (
-    <div className="initial sticky top-0 left-0 z-30 flex w-full flex-col transition-[padding,background-color] backdrop-blur-md duration-300 bg-white/50 h-16 justify-center">
+    <div className="sticky top-0 left-0 z-30 flex w-full flex-col transition-[padding,background-color] backdrop-blur-md duration-300 h-16 justify-center">
       <div className="mx-auto flex w-full text-base-900">
         <div className="site-container flex w-full items-center">
           <header className="flex w-full items-center gap-2">

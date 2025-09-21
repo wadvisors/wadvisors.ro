@@ -9,9 +9,9 @@ export default function Hero() {
 
   return (
     <section className="relative z-10 flex min-h-[100lvh] -mt-16 w-full">
-      <div className="absolute -z-10 h-full min-h-full w-full overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-
+      <div
+        className={`absolute -z-10 h-full min-h-full w-full overflow-hidden bg-cover bg-[url("/api/_plugin/image/optimize/${page.cover.path}?width=1080&height=960&fit=cover")]`}
+      >
         {/*<Image
 			src={heroImage}
 			className="hidden h-auto min-h-full w-full object-cover object-bottom sm:block"

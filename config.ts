@@ -1,6 +1,7 @@
 import { DatabaseEvents, type ModuleBuildContext } from "bknd";
 import { slugify } from "bknd/utils";
 import type { CloudflareBkndConfig } from "bknd/adapter/cloudflare";
+import { cloudflareImageOptimization } from "bknd/plugins";
 import schema from "./schema/index";
 
 export default {
@@ -28,7 +29,7 @@ export default {
             issuer: "wadvisors",
             secret: env.SECRET,
           },
-          guard: { enabled: true },
+          guard: { enabled: env.ENVIRONMENT !== "development" },
           roles: {
             EDITOR: {
               is_default: true,
@@ -58,6 +59,11 @@ export default {
       },
       options: {
         mode: "code",
+        plugins: [
+          cloudflareImageOptimization({
+            accessUrl: "/api/_plugin/image/optimize",
+          }),
+        ],
       },
       onBuilt: async (app) => {
         app.emgr.onEvent(
