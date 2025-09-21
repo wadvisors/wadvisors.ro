@@ -11,7 +11,7 @@
     "bknd": "npx tsx node_modules/.bin/bknd",
     "bknd:staging": "CLOUDFLARE_ENV=staging npx tsx node_modules/.bin/bknd",
     "bknd:production": "CLOUDFLARE_ENV=production npx tsx node_modules/.bin/bknd",
-    "deploy:staging": "CLOUDFLARE_ENV=staging GIT_BRANCH=$WORKERS_CI_BRANCH npm run build:staging && npm run bknd:staging -- sync --force && wrangler deploy",
+    "deploy:staging": "CLOUDFLARE_ENV=staging npm run build:staging && npm run bknd:staging -- sync --force && wrangler deploy --vars GIT_BRANCH=$WORKERS_CI_BRANCH",
     "deploy:production": "CLOUDFLARE_ENV=production npm run build:production && npm run bknd:production -- sync --force && wrangler deploy",
     "typegen": "npm run cf-typegen && react-router typegen",
     "predev": "npm run typegen",
