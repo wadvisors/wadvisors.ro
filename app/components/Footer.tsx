@@ -75,9 +75,9 @@ export default function Footer() {
               <span className="text-red-600 animation animate-pulse">♥</span>
             </a>
           </em>
-          <span className="bg-white rounded p-1">{env.$WORKERS_CI_BRANCH}</span>
+          <span className="bg-white rounded p-1">{env.WORKERS_CI_BRANCH}</span>
           <span className="bg-white rounded p-1 slashed-zero proportional-nums">
-            {env.$WORKERS_CI_COMMIT_SHA.slice(0, 7)}
+            {env.WORKERS_CI_COMMIT_SHA.slice(0, 7)}
           </span>
         </div>
       </div>
