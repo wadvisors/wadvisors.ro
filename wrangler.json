@@ -45,7 +45,8 @@
         {
           "binding": "DB",
           "database_name": "staging-db",
-          "database_id": "e410ada7-5a2a-4928-9540-dda77ca184d2"
+          "database_id": "e410ada7-5a2a-4928-9540-dda77ca184d2",
+          "remote": true
         }
       ],
       "r2_buckets": [
@@ -74,7 +75,8 @@
         {
           "binding": "DB",
           "database_name": "production-db",
-          "database_id": "45a178bc-3127-4e33-a014-f6ebd11da5ff"
+          "database_id": "45a178bc-3127-4e33-a014-f6ebd11da5ff",
+          "remote": true
         }
       ],
       "r2_buckets": [
