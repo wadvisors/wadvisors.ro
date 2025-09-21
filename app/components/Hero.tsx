@@ -8,7 +8,7 @@ export default function Hero() {
   if (!page) return null;
 
   return (
-    <section className="relative z-10 flex min-h-[100lvh] -mt-16 w-full">
+    <section className="relative z-10 flex min-h-[100lvh] -mt-24 w-full">
       <div
         className={`absolute -z-10 h-full min-h-full w-full overflow-hidden bg-cover bg-center bg-no-repeat`}
         style={{
