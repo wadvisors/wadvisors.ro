@@ -16,7 +16,8 @@
     "ENVIRONMENT": "development",
     "SECRET": "change-me",
     "GIT_BRANCH": "$WORKERS_CI_BRANCH",
-    "GIT_SHA": "$WORKERS_CI_COMMIT_SHA"
+    "GIT_SHA": "$WORKERS_CI_COMMIT_SHA",
+    "API_TOKEN": ""
   },
   "d1_databases": [
     {
