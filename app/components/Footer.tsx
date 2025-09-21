@@ -67,7 +67,7 @@ export default function Footer() {
           <em className="not-italic">
             Made with{" "}
             <span className="text-red-600 animation animate-pulse">♥</span> &{" "}
-            <a className="underline" href="https://bknd.io">
+            <a className="underline" target="_blank" href="https://bknd.io">
               bknd.io
             </a>
           </em>
