@@ -50,6 +50,8 @@ export default new Hono<{
       request,
     });
 
+    console.log("---> import meta", JSON.stringify(import.meta.env));
+
     if (url.pathname !== "/") {
       // try bknd api
       const res = await app.fetch(request);
