@@ -28,14 +28,12 @@ export default {
             issuer: "wadvisors",
             secret: env.SECRET,
           },
-          guard: { enabled: false },
+          guard: { enabled: true },
           roles: {
             EDITOR: {
               is_default: true,
               implicit_allow: false,
               permissions: [
-                "system.config.read",
-                "system.schema.read",
                 "system.access.api",
                 "media.file.read",
                 "media.file.upload",
