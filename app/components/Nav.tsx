@@ -33,7 +33,7 @@ export default function Nav() {
                     }) => (
                       <li key={id}>
                         <NavLink
-                          viewTransition={false}
+                          viewTransition={true}
                           to={{
                             pathname: handle === "home" ? "/" : `/${handle}`,
                             search:
