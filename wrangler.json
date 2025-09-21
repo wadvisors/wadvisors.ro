@@ -61,8 +61,8 @@
       "vars": {
         "ENVIRONMENT": "staging",
         "SECRET": "change-me",
-        "WORKERS_CI_BRANCH": "$WORKERS_CI_BRANCH",
-        "WORKERS_CI_COMMIT_SHA": "$WORKERS_CI_COMMIT_SHA",
+        "$WORKERS_CI_BRANCH": "$WORKERS_CI_BRANCH",
+        "$WORKERS_CI_COMMIT_SHA": "$WORKERS_CI_COMMIT_SHA",
         "API_TOKEN": ""
       }
     },
