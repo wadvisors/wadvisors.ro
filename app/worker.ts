@@ -4,7 +4,7 @@ import type { Api } from "bknd/client";
 import { createRequestHandler } from "react-router";
 import config from "../config";
 import { Hono } from "hono";
-import { languageDetector } from "hono/language";
+// import { languageDetector } from "hono/language";
 
 import type { AppLoadContext } from "react-router";
 
@@ -32,15 +32,15 @@ export default new Hono<{
   Bindings: Env;
   Variables: AppLoadContext["bknd"];
 }>()
-  .use(
-    languageDetector({
-      convertDetectedLanguage: (lang) => lang.split("-")[0],
-      supportedLanguages: ["en", "ro"],
-      fallbackLanguage: "en",
-      // caches: ["cookie"],
-      debug: false,
-    }),
-  )
+  // .use(
+  //   languageDetector({
+  //     convertDetectedLanguage: (lang) => lang.split("-")[0],
+  //     supportedLanguages: ["en", "ro"],
+  //     fallbackLanguage: "en",
+  //     // caches: ["cookie"],
+  //     debug: false,
+  //   }),
+  // )
   .use(async (c, next) => {
     const url = new URL(c.req.url);
     const request = c.req.raw;
@@ -76,7 +76,7 @@ export default new Hono<{
         app: c.get("app"),
         api: c.get("api"),
         apiUI: c.get("apiUI"),
-        language: c.get("language"),
+        language: "en",
       },
       cloudflare: { env: c.env, ctx: c.executionCtx },
     });
