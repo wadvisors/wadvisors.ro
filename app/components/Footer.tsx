@@ -61,10 +61,13 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="mt-4 mb-2 text-center text-sm opacity-80">
+        <div className="mt-4 mb-2 text-center text-sm opacity-80 flex flex-col">
           &copy; 2025{" "}
-          <small className="font-light mt-2 block opacity-50 font-mono">
-            {env.GIT_BRANCH} / {env.GIT_SHA}
+          <small className="font-light mt-2 mx-auto opacity-50 font-mono flex gap-2">
+            <span className="bg-white rounded p-1">{env.GIT_BRANCH}</span>
+            <span className="bg-white rounded p-1">
+              {env.GIT_SHA.slice(0, 7)}
+            </span>
           </small>
         </div>
       </div>
