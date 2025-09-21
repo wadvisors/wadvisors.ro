@@ -1,11 +1,11 @@
-export default function SiteLogo() {
+export default function SiteLogo({ className = "w-24" }) {
   return (
     <a
-      className="primary-focus flex items-center align-middle"
+      className={`primary-focus flex items-center align-middle ${className}`}
       href="/"
-      aria-label="Home"
+      aria-label="W Advisors"
     >
-      <div className="font-heading-1 text-xl uppercase">W Advisors</div>
+      <img src="/wadvisors.svg" className="w-full h-auto" alt="W Advisors" />
     </a>
   );
 }

@@ -14,7 +14,7 @@ export default function Nav() {
         <div className="site-container flex w-full items-center">
           <header className="flex w-full items-center gap-2">
             <div className="my-2 flex flex-auto justify-start">
-              <SiteLogo />
+              <SiteLogo className="w-48 absolute" />
             </div>
 
             {/*<!-- desktop nav menu -->*/}

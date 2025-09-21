@@ -1,7 +1,7 @@
 /**
  * * Tailwind theme settings
  *
- * These are in a separate file so it can be imported into <style> tags in .astro components
+ * These are in a separate file so it can be imported into <style> tags in react components
  */
 @theme {
   /* primary colors */
