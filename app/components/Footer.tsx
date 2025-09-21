@@ -71,7 +71,7 @@ export default function Footer() {
               target="_blank"
               href="https://bknd.io"
             >
-              Bknd{" "}
+              bknd.io{" "}
               <span className="text-red-600 animation animate-pulse">♥</span>
             </a>
           </em>
