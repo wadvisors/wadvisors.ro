@@ -37,8 +37,8 @@ export default new Hono<{
       convertDetectedLanguage: (lang) => lang.split("-")[0],
       supportedLanguages: ["en", "ro"],
       fallbackLanguage: "en",
-      caches: ["cookie"],
-      debug: true,
+      // caches: ["cookie"],
+      debug: false,
     }),
   )
   .use(async (c, next) => {
@@ -59,7 +59,7 @@ export default new Hono<{
     }
 
     const api = app.getApi({ headers: request.headers });
-    const apiUI = app.getApi({ headers: request.headers });
+    const apiUI = app.getApi({ token: c.env.API_TOKEN });
 
     await api.verifyAuth();
     await apiUI.verifyAuth();
