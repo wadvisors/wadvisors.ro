@@ -34,12 +34,13 @@ export default {
               is_default: true,
               implicit_allow: false,
               permissions: [
+                "system.config.read",
+                "system.schema.read",
                 "system.access.api",
                 "media.file.read",
                 "media.file.upload",
                 "data.entity.create",
                 "data.entity.read",
-                "system.schema.read",
               ],
             },
             ADMIN: {
