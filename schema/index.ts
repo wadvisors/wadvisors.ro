@@ -28,7 +28,6 @@ export default em(
     relation(pages).polyToMany(media, {
       mappedBy: "gallery",
     });
-
     relation(articles).manyToMany(users).polyToOne(media, {
       mappedBy: "cover",
     });
@@ -36,7 +35,6 @@ export default em(
       mappedBy: "avatar",
     });
     relation(portfolio).manyToOne(clients);
-
     relation(clients).polyToOne(media, {
       mappedBy: "logo",
     });
