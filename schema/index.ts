@@ -11,8 +11,8 @@ import team from "./team";
 
 export default em(
   {
-    ...articles,
     ...pages,
+    ...articles,
     ...press,
     ...portfolio,
     ...clients,
