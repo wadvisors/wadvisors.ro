@@ -40,7 +40,7 @@ export default function Hero() {
                   variant: "primary",
                   arrow: "right",
                   className:
-                    "text-xl justify-center inline-flex gap-4 md:justify-start",
+                    "text-xl justify-center inline-flex gap-4 md:justify-start -motion-translate-y-in-100",
                 },
               },
             }}
