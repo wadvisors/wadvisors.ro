@@ -29,8 +29,7 @@ export default function Nav() {
                       viewTransition={true}
                       to={{
                         pathname: handle === "home" ? "/" : `/${handle}`,
-                        search:
-                          language !== "en" ? `lang=${language}` : undefined,
+                        search: `lang=${language}`,
                       }}
                       className="nav__link--base flex w-full items-center"
                     >
