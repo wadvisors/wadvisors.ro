@@ -12,7 +12,7 @@
 }
 
 .button--secondary {
-  @apply border-2;
+  @apply border-2 bg-white/80;
   /* @apply hover:border-opacity-80; */
   @apply focus-visible:ring-primary-200;
 }

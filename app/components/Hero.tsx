@@ -8,7 +8,7 @@ export default function Hero() {
   if (!page) return null;
 
   return (
-    <section className="relative z-10 flex min-h-[100lvh] -mt-24 w-full">
+    <section className="relative z-10 flex min-h-[100lvh] -mt-[136px] w-full">
       <div
         className={`absolute -z-10 h-full min-h-full w-full overflow-hidden bg-cover bg-center bg-no-repeat`}
         style={{
@@ -16,27 +16,9 @@ export default function Hero() {
             page.cover.path,
           )}?width=1920&height=1080&fit=cover")`,
         }}
-      >
-        {/*<Image
-			src={heroImage}
-			className="hidden h-auto min-h-full w-full object-cover object-bottom sm:block"
-			alt="wedding"
-			aria-hidden="true"
-			loading="eager"
-			height={1400}
-		/>
-		<Image
-			src={heroImageMobile}
-			className="h-auto min-h-full w-full object-cover sm:hidden"
-			alt="wedding"
-			aria-hidden="true"
-			loading="eager"
-			width={1200}
-		/>*/}
-      </div>
-
-      <div className="site-container relative flex w-full justify-items-end gap-10 pb-20 text-center md:text-left">
-        <div className="text-base-500 mt-auto mr-auto max-w-[800px] flex-col">
+      ></div>
+      <div className="flex w-full justify-items-end gap-10 pb-20 text-center md:text-left">
+        <div className="text-base-500 site-container mt-auto mr-auto flex-col">
           <Markdown
             content={page.content}
             overrides={{

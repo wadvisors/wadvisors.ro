@@ -78,7 +78,7 @@
 
   /* styles navbar links */
   .nav__link--base {
-    @apply font-heading-1 px-4 py-2 tracking-wide uppercase transition duration-200 hover:opacity-80;
+    @apply font-heading-1 py-2 tracking-wide uppercase transition duration-200 hover:opacity-80;
   }
 }
 
