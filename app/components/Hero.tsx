@@ -25,13 +25,13 @@ export default function Hero() {
               h1: {
                 props: {
                   className:
-                    "font-heading-1 text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
+                    "motion-opacity-in-0 motion-translate-y-in-100 motion-blur-in-md font-heading-1 text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
                 },
               },
               p: {
                 props: {
                   className:
-                    "mt-8 text-lg tracking-widest text-pretty md:w-1/2 md:text-2xl",
+                    "motion-opacity-in-0 motion-blur-in-sm mt-8 text-lg tracking-widest text-pretty md:w-1/2 md:text-2xl",
                 },
               },
               a: {

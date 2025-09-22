@@ -5,6 +5,8 @@
 /* tailwind plugins */
 /*@plugin "@tailwindcss/forms";*/
 
+@plugin 'tailwindcss-motion';
+
 /* theme definition import */
 @import "./styles/tailwind-theme.css";
 
