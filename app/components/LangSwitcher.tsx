@@ -8,6 +8,7 @@ export default function LangSwitcher() {
 
   return (
     <Link
+      viewTransition={true}
       to={!switchToLanguage ? "?" : `?lang=${switchToLanguage}`}
       className="nav__link--base flex items-center"
     >

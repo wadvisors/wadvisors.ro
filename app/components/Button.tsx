@@ -56,6 +56,7 @@ export default function Button({ ...props }: Props) {
   if (href) {
     return (
       <Link
+        viewTransition={true}
         className={`${className} button group gap-2 ${variantClass}`}
         to={href}
         {...rest}

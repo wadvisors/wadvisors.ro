@@ -17,30 +17,30 @@ export default function Hero() {
           )}?width=1920&height=1080&fit=cover")`,
         }}
       ></div>
-      <div className="flex w-full justify-items-end gap-10 pb-20 text-center md:text-left">
-        <div className="text-base-500 site-container mt-auto mr-auto flex-col">
+      <div className="flex w-full justify-items-end gap-10 pb-20 text-center md:text-left backdrop-blur md:mask-r-from-30% bg-gradient-to-r from-white/50 to-transparent">
+        <div className="text-base-500 site-container mt-auto w-full flex-col">
           <Markdown
             content={page.content}
             overrides={{
               h1: {
                 props: {
                   className:
-                    "font-heading-1 text-4xl text-pretty md:text-7xl md:leading-tight inline-block",
+                    "font-heading-1 text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
                 },
               },
               p: {
                 props: {
                   className:
-                    "mt-8 text-lg tracking-widest text-pretty md:max-w-[550px] md:text-2xl",
+                    "mt-8 text-lg tracking-widest text-pretty md:w-1/2 md:text-2xl",
                 },
               },
               a: {
                 component: Button,
                 props: {
-                  variant: "ghost",
+                  variant: "primary",
                   arrow: "right",
                   className:
-                    "pl-0 text-xl text-white md:text-3xl mt-10 flex flex-wrap justify-center gap-4 md:justify-start",
+                    "text-xl justify-center inline-flex gap-4 md:justify-start",
                 },
               },
             }}
