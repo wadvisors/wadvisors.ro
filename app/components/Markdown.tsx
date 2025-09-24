@@ -1,22 +1,14 @@
 import Markdown from "markdown-to-jsx";
 import { useState } from "react";
-import { Link } from "react-router";
+import Button from "./Button";
+import Portfolio from "./Portfolio";
+import Team from "./Team";
+import Newsletter from "./Newsletter";
 
 interface MarkdownRendererProps {
   content: string;
   className?: string;
   overrides?: object;
-}
-
-function Newsletter({}) {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      Newsletter comp {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
-    </div>
-  );
 }
 
 export default function MarkdownRenderer({
@@ -30,14 +22,21 @@ export default function MarkdownRenderer({
       options={{
         overrides: {
           a: {
-            component: Link,
+            component: Button,
             props: {
               target: "_blank",
               rel: "noopener noreferrer",
+              variant: "link",
             },
           },
           newsletter: {
             component: Newsletter,
+          },
+          portfolio: {
+            component: Portfolio,
+          },
+          team: {
+            component: Team,
           },
           ...overrides,
         },

@@ -1,21 +1,15 @@
-import {
-  medium,
-  boolean,
-  entity,
-  text,
-  jsonSchema,
-  enumm,
-  datetime,
-} from "bknd";
+import { medium, boolean, entity, text, jsonSchema, number } from "bknd";
 
 export default {
   team: entity("team", {
     name: text().required(),
+    position: text().required(),
     avatar: medium({
       min_items: 1,
       mime_types: ["png", "jpg", "jpeg"],
     }),
-    bio: jsonSchema({
+    bio_t: jsonSchema({
+      label: "Bio",
       hidden: ["table"],
       schema: {
         type: "object",
@@ -50,5 +44,6 @@ export default {
       },
     }),
     active: boolean(),
+    order: number(),
   }),
 };

@@ -16,11 +16,6 @@ async function pageLoader(args: LoaderFunctionArgs) {
     sort: "order",
   });
 
-  // -- snippets
-  const { data: snippets } = await api.data.readMany("snippets", {
-    select: ["id", "content"],
-  });
-
   // -- page
   const { data: page } = await api.data.readMany("pages", {
     select: ["id", "title_t", "content_t"],
@@ -40,7 +35,6 @@ async function pageLoader(args: LoaderFunctionArgs) {
     {
       page: page[0],
       pages,
-      snippets,
     },
     language,
   );

@@ -2,10 +2,13 @@ import { useRouteLoaderData } from "react-router";
 import Markdown from "~/components/Markdown";
 import Button from "./Button";
 
-export default function Hero() {
-  const { page } = useRouteLoaderData("routes/_");
+interface HeroProps {
+  cover: string;
+  content: string;
+}
 
-  if (!page) return null;
+export default function Hero({ cover, content }: HeroProps) {
+  if (!cover || !content) return null;
 
   return (
     <section className="relative z-10 flex min-h-[100lvh] -mt-[176px] w-full">
@@ -13,14 +16,14 @@ export default function Hero() {
         className={`absolute -z-10 h-full min-h-full w-full overflow-hidden bg-cover bg-center bg-no-repeat`}
         style={{
           backgroundImage: `url("/api/_plugin/image/optimize/${encodeURIComponent(
-            page.cover.path,
+            cover,
           )}?width=1920&height=1080&fit=cover")`,
         }}
       ></div>
       <div className="flex w-full justify-items-end gap-10 pb-20 text-center md:text-left backdrop-blur md:mask-r-from-30% bg-gradient-to-r from-white/50 to-transparent">
         <div className="text-base-500 site-container mt-auto w-full flex-col">
           <Markdown
-            content={page.content}
+            content={content}
             overrides={{
               h1: {
                 props: {

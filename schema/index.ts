@@ -55,5 +55,7 @@ export default em(
     index(pages).on(["active"]);
     index(pages).on(["handle"]);
     index(pages).on(["order"]);
+    index(team).on(["active"]);
+    index(team).on(["order"]);
   },
 ).toJSON();

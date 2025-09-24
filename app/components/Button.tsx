@@ -43,22 +43,27 @@ export default function Button({ ...props }: Props) {
     onclick,
     className,
     children,
+    target = "",
     ...rest
   } = props;
 
   const variantClass = {
-    primary: "button--primary",
-    secondary: "button--secondary",
-    outline: "button--outline",
-    ghost: "button--ghost",
+    primary: "button--primary button group gap-2",
+    secondary: "button--secondary button group gap-2",
+    outline: "button--outline button group gap-2",
+    ghost: "button--ghost button group gap-2",
+    link: "button--link",
   }[variant];
 
   if (href) {
+    const target = href.startsWith("http") ? "_blank" : "";
+
     return (
       <Link
         viewTransition={true}
-        className={`${className} button group gap-2 ${variantClass}`}
+        className={`${className} ${variantClass}`}
         to={href}
+        target={target}
         {...rest}
       >
         <ButtonContent arrow={arrow}>{children}</ButtonContent>
