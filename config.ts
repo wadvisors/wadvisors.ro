@@ -29,8 +29,7 @@ export default {
             issuer: "wadvisors",
             secret: env.SECRET,
           },
-          // guard: { enabled: env.ENVIRONMENT !== "development" },
-          guard: { enabled: false },
+          guard: { enabled: env.ENVIRONMENT !== "development" },
           roles: {
             EDITOR: {
               is_default: true,
