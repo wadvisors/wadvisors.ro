@@ -27,7 +27,7 @@ export default function Team({}) {
               <img
                 className="m-0 p-0 w-1/3 self-start"
                 loading="lazy"
-                src={`/api/_plugin/image/optimize/${encodeURIComponent(avatar.path)}?width=1080&height=1920&fit=cover`}
+                src={`/api/_plugin/image/optimize/${encodeURIComponent(avatar.path)}?width=720&height=1080&fit=cover`}
               />
               <div className="px-8 self-center">
                 <h3 className="my-0">{name}</h3>
