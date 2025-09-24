@@ -20,7 +20,10 @@ export default em(
     ...users,
     ...media,
   },
-  ({ relation }, { pages, articles, portfolio, clients, users, media }) => {
+  (
+    { relation, index },
+    { pages, articles, press, portfolio, clients, team, users, media },
+  ) => {
     // -- relations
     relation(pages).polyToOne(media, {
       mappedBy: "cover",
@@ -37,6 +40,15 @@ export default em(
     relation(portfolio).manyToOne(clients);
     relation(clients).polyToOne(media, {
       mappedBy: "logo",
+    });
+    relation(team).polyToOne(media, {
+      mappedBy: "avatar",
+    });
+    relation(press).polyToOne(media, {
+      mappedBy: "cover",
+    });
+    relation(press).polyToOne(media, {
+      mappedBy: "document",
     });
 
     // -- indexes

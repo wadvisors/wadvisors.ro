@@ -1,55 +1,68 @@
-import { media, entity, jsonSchema, enumm, datetime } from "bknd";
-import dateFields from "./date-fields";
+import { medium, entity, jsonSchema, boolean, text, datetime } from "bknd";
 
 export default {
   press: entity("press", {
-    title: jsonSchema({
+    title: text({
       label: "Title",
+      description: "Auto generated",
+      hidden: ["submit"],
+      html_config: {
+        element: "input",
+        props: {
+          readonly: "true",
+        },
+      },
+    }),
+    title_t: jsonSchema({
+      label: "Title",
+      hidden: ["table"],
       schema: {
         type: "object",
         properties: {
-          ro: { type: "string", title: "Title (RO)" },
           en: { type: "string", title: "Title (EN)" },
+          ro: { type: "string", title: "Title (RO)" },
         },
-        required: ["ro", "en"],
+        required: ["en"],
         additionalProperties: false,
       },
     }),
+    location: text({}).required(),
     content: jsonSchema({
       label: "Content",
+      hidden: ["table"],
       schema: {
         type: "object",
         properties: {
-          ro: { type: "string", title: "Content (RO)" },
           en: { type: "string", title: "Content (EN)" },
+          ro: { type: "string", title: "Content (RO)" },
         },
-        required: ["ro"],
+        required: ["en"],
         additionalProperties: false,
       },
       ui_schema: {
-        ro: {
-          "ui:widget": "textarea",
-          "ui:options": { rows: 12 },
-          "ui:description": "Scrie comunicatul în română",
-        },
         en: {
           "ui:widget": "textarea",
           "ui:options": { rows: 12 },
           "ui:description": "Write the press release in English",
         },
+        ro: {
+          "ui:widget": "textarea",
+          "ui:options": { rows: 12 },
+          "ui:description": "Scrie comunicatul în română",
+        },
       },
     }),
-    media: media({
-      label: "Attached Media",
+    cover: medium({
+      min_items: 1,
+      mime_types: ["png", "jpg", "jpeg"],
     }),
-    status: enumm({
-      label: "Status",
-      enum: ["draft", "review", "published", "archived"],
-      default_value: "draft",
+    document: medium({
+      min_items: 1,
+      mime_types: ["pdf"],
     }),
     publishedAt: datetime({
-      label: "Published at",
-    }),
-    ...dateFields,
+      label: "Published At",
+    }).required(),
+    active: boolean(),
   }),
 };

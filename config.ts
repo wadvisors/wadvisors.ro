@@ -69,28 +69,50 @@ export default {
         app.emgr.onEvent(
           DatabaseEvents.MutatorInsertBefore,
           async ({ params: { entity, data } }) => {
-            if (entity.name !== "pages") return { ...data };
-            return {
-              ...data,
-              ...(data.title_t?.en && {
-                title: data.title_t.en,
-                handle: slugify(data.title_t.en),
-              }),
-            };
+            switch (entity.name) {
+              case "pages":
+                return {
+                  ...data,
+                  ...(data.title_t?.en && {
+                    title: data.title_t.en,
+                    handle: slugify(data.title_t.en),
+                  }),
+                };
+              case "press":
+                return {
+                  ...data,
+                  ...(data.title_t?.en && {
+                    title: data.title_t.en,
+                  }),
+                };
+              default:
+                return data;
+            }
           },
           "sync",
         );
         app.emgr.onEvent(
           DatabaseEvents.MutatorUpdateBefore,
           async ({ params: { entity, data } }) => {
-            if (entity.name !== "pages") return { ...data };
-            return {
-              ...data,
-              ...(data.title_t?.en && {
-                title: data.title_t.en,
-                handle: slugify(data.title_t.en),
-              }),
-            };
+            switch (entity.name) {
+              case "pages":
+                return {
+                  ...data,
+                  ...(data.title_t?.en && {
+                    title: data.title_t.en,
+                    handle: slugify(data.title_t.en),
+                  }),
+                };
+              case "press":
+                return {
+                  ...data,
+                  ...(data.title_t?.en && {
+                    title: data.title_t.en,
+                  }),
+                };
+              default:
+                return data;
+            }
           },
           "sync",
         );

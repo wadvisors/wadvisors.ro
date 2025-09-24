@@ -10,7 +10,7 @@ export default function Nav() {
 
   return (
     <div className="top-0 sticky w-full z-30">
-      <div className="pt-10 relative">
+      <div className="py-10 relative">
         <div className="relative flex w-full site-container justify-between items-center z-20">
           <nav className="hidden md:flex w-1/3">
             <ul className="flex gap-8">
