@@ -17,10 +17,8 @@
   "preview_urls": false,
   "vars": {
     "ENVIRONMENT": "development",
-    "SECRET": "change-me",
     "WORKERS_CI_BRANCH": "no-branch",
-    "WORKERS_CI_COMMIT_SHA": "0000000",
-    "API_TOKEN": ""
+    "WORKERS_CI_COMMIT_SHA": "0000000"
   },
   "d1_databases": [
     {
@@ -60,10 +58,8 @@
       ],
       "vars": {
         "ENVIRONMENT": "staging",
-        "SECRET": "change-me",
         "WORKERS_CI_BRANCH": "$WORKERS_CI_BRANCH",
-        "WORKERS_CI_COMMIT_SHA": "$WORKERS_CI_COMMIT_SHA",
-        "API_TOKEN": ""
+        "WORKERS_CI_COMMIT_SHA": "$WORKERS_CI_COMMIT_SHA"
       }
     },
     "production": {
@@ -90,10 +86,8 @@
       ],
       "vars": {
         "ENVIRONMENT": "production",
-        "SECRET": "change-me",
         "WORKERS_CI_BRANCH": "$WORKERS_CI_BRANCH",
-        "WORKERS_CI_COMMIT_SHA": "$WORKERS_CI_COMMIT_SHA",
-        "API_TOKEN": ""
+        "WORKERS_CI_COMMIT_SHA": "$WORKERS_CI_COMMIT_SHA"
       }
     }
   }
