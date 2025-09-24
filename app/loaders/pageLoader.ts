@@ -16,6 +16,17 @@ async function pageLoader(args: LoaderFunctionArgs) {
     sort: "order",
   });
 
+  const { data: team } = await api.data.readMany("team", {
+    select: ["id", "name", "position", "bio_t"],
+    where: { active: true },
+    with: {
+      avatar: {
+        select: ["path"],
+      },
+    },
+    sort: "order",
+  });
+
   // -- page
   const { data: page } = await api.data.readMany("pages", {
     select: ["id", "title_t", "content_t"],
@@ -34,6 +45,7 @@ async function pageLoader(args: LoaderFunctionArgs) {
   return transformContent(
     {
       page: page[0],
+      team,
       pages,
     },
     language,

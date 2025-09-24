@@ -11,13 +11,13 @@ interface MemberProps {
 }
 
 export default function Team({}) {
-  const team = useRouteLoaderData("routes/_._index");
+  const { team } = useRouteLoaderData("routes/_");
 
   if (!team?.length) return null;
 
   return (
-    <div className="bg-white py-8 my-8">
-      <ol className="my-8 p-0 grid gap-8 mx-auto md:w-3xl">
+    <div className="py-4 my-4">
+      <ol className="p-0 grid gap-8 mx-auto">
         {team.map(({ id, name, position, bio, avatar }: MemberProps) => {
           return (
             <li
