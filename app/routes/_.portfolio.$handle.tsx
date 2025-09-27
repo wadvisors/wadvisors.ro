@@ -7,6 +7,7 @@ import {
 } from "react-router";
 import Markdown from "~/components/Markdown";
 import Link from "~/components/Link";
+import Tags from "~/components/Tags";
 import clientLoader from "~/loaders/clientLoader";
 
 export const loader: LoaderFunction = clientLoader;
@@ -42,18 +43,7 @@ function H1WithExtra({ children, ...props }: H1WithExtraProps) {
         />
       </figure>
       <h1 {...props}>{children}</h1>
-      {tags.length && (
-        <ol className="flex gap-3 items-start">
-          {tags.map((t: string) => (
-            <small
-              key={t}
-              className="text-primary-700 bg-primary-100 rounded px-2"
-            >
-              {t}
-            </small>
-          ))}
-        </ol>
-      )}
+      <Tags tags={tags} />
     </div>
   );
 }

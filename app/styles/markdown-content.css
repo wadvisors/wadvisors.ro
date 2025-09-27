@@ -115,6 +115,10 @@
   @apply my-4 block h-auto w-full rounded-md;
 }
 
+.markdown-content :is(iframe):not(:where(.not-content *)) {
+  @apply aspect-video shadow;
+}
+
 /* italics */
 .markdown-content em:not(:where(.not-content *)) {
   @apply text-primary-900 italic;
