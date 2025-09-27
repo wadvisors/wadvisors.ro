@@ -15,10 +15,10 @@ export default function Clients() {
             key={id}
             className="flex flex-col gap-4 items-center align-center p-0"
           >
-            <figure className="aspect-video overflow-hidden">
+            <figure>
               <img
                 alt={title}
-                className="m-0 p-0 self-start border-none grayscale hover:grayscale-0 cursor-pointer w-auto h-auto"
+                className="m-0 p-0 self-start border-none grayscale hover:grayscale-0 cursor-pointer w-auto h-full"
                 loading="lazy"
                 src={`/api/_plugin/image/optimize/${encodeURIComponent(logo?.path)}?width=512&height=244&fit=scale-down`}
               />
