@@ -1,7 +1,7 @@
 import { entity, text, jsonSchema, boolean } from "bknd";
 
 export default {
-  caseStudies: entity("case-studies", {
+  showcases: entity("showcases", {
     title: jsonSchema({
       label: "Project Title",
       schema: {
