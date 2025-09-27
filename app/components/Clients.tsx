@@ -16,7 +16,7 @@ export default function Clients() {
               alt={title}
               className="m-0 p-0 self-start border-none aspect-video grayscale hover:grayscale-0 cursor-pointer"
               loading="lazy"
-              src={`/api/_plugin/image/optimize/${encodeURIComponent(logo?.path)}?width=512&height=244&fit=cover`}
+              src={`/api/_plugin/image/optimize/${encodeURIComponent(logo?.path)}?width=512&height=244&fit=scale-down`}
             />
           </li>
         );
