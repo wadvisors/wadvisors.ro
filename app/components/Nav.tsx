@@ -15,7 +15,7 @@ export default function Nav() {
           <nav className="flex">
             <a
               className="primary-focus shrink-0"
-              href="/"
+              href={`/?lang=${language}`}
               aria-label="W Advisors"
             >
               <img

@@ -13,7 +13,7 @@ export default function LangSwitcher() {
       className="nav__link--base flex items-center"
     >
       <Globe className="p-1" />
-      {language}
+      {switchToLanguage}
     </Link>
   );
 }
