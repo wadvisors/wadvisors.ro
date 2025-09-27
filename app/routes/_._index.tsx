@@ -1,8 +1,11 @@
 import type { Route } from "./+types/_._index";
-import { useRouteLoaderData } from "react-router";
+import { useRouteLoaderData, type LoaderFunction } from "react-router";
 import Markdown from "~/components/Markdown";
 import Hero from "~/components/Hero";
 import splitMarkdown from "~/utils/split-markdown";
+import clientsLoader from "~/loaders/clientsLoader";
+
+export const loader: LoaderFunction = clientsLoader;
 
 export default function Index() {
   const { page } = useRouteLoaderData("routes/_");

@@ -1,30 +1,27 @@
 import { type LoaderFunctionArgs } from "react-router";
 import transformContent from "~/utils/get-content";
 
-async function pressLoader(args: LoaderFunctionArgs) {
+async function clientsLoader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
   const api = args.context.bknd.apiUI;
 
-  const { data: press } = await api.data.readMany("press", {
-    select: ["id", "location", "title_t", "content_t"],
+  const { data: clients } = await api.data.readMany("clients", {
+    select: ["id", "title"],
     where: { active: true },
     with: {
-      cover: {
-        select: ["path"],
-      },
-      document: {
+      logo: {
         select: ["path"],
       },
     },
-    sort: "publishedAt",
+    sort: "order",
   });
 
   return transformContent(
     {
-      press,
+      clients,
     },
     language,
   );
 }
 
-export default pressLoader;
+export default clientsLoader;

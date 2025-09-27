@@ -35,7 +35,17 @@ export default function Team({}) {
                 <strong className="block mb-4 text-primary-400 font-light">
                   {position}
                 </strong>
-                <p className="opacity-80 text-lg">{bio}</p>
+                <p
+                  className="opacity-80 text-lg
+                  first-letter:font-serif
+                  first-letter:text-6xl
+                  first-letter:mr-2
+                  first-letter:-mb-1
+                  first-letter:font-extralight
+                  first-letter:float-left"
+                >
+                  {bio}
+                </p>
               </div>
             </li>
           );

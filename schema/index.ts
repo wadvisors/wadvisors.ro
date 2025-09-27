@@ -3,7 +3,7 @@ import { em, index } from "bknd";
 import pages from "./pages";
 import articles from "./articles";
 import clients from "./clients";
-import portfolio from "./portfolio";
+import caseStudies from "./case-studies";
 import press from "./press";
 import media from "./media";
 import users from "./users";
@@ -14,7 +14,7 @@ export default em(
     ...pages,
     ...articles,
     ...press,
-    ...portfolio,
+    ...caseStudies,
     ...clients,
     ...team,
     ...users,
@@ -22,7 +22,7 @@ export default em(
   },
   (
     { relation, index },
-    { pages, articles, press, portfolio, clients, team, users, media },
+    { pages, articles, press, caseStudies, clients, team, users, media },
   ) => {
     // -- relations
     relation(pages).polyToOne(media, {
@@ -37,9 +37,12 @@ export default em(
     relation(users).polyToOne(media, {
       mappedBy: "avatar",
     });
-    relation(portfolio).manyToOne(clients);
+    relation(caseStudies).manyToOne(clients);
     relation(clients).polyToOne(media, {
       mappedBy: "logo",
+    });
+    relation(clients).polyToMany(media, {
+      mappedBy: "gallery",
     });
     relation(team).polyToOne(media, {
       mappedBy: "avatar",
@@ -59,5 +62,7 @@ export default em(
     index(team).on(["order"]);
     index(press).on(["active"]);
     index(press).on(["publishedAt"]);
+    index(clients).on(["active"]);
+    index(clients).on(["order"]);
   },
 ).toJSON();

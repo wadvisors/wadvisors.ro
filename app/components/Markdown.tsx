@@ -4,6 +4,7 @@ import Button from "./Button";
 import Portfolio from "./Portfolio";
 import Team from "./Team";
 import Newsletter from "./Newsletter";
+import Clients from "./Clients";
 
 interface MarkdownRendererProps {
   content: string;
@@ -37,6 +38,9 @@ export default function MarkdownRenderer({
           },
           team: {
             component: Team,
+          },
+          clients: {
+            component: Clients,
           },
           ...overrides,
         },

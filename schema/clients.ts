@@ -1,45 +1,14 @@
-import { medium, entity, text, jsonSchema, enumm, datetime } from "bknd";
-import dateFields from "./date-fields";
+import { medium, media, entity, text, jsonSchema, boolean, number } from "bknd";
 
 export default {
   clients: entity("clients", {
-    title: text({
-      label: "Title",
-      description: "Auto generated",
-      hidden: ["submit"],
-      html_config: {
-        element: "input",
-        props: {
-          readonly: "true",
-        },
-      },
-    }),
-    title_t: jsonSchema({
-      label: "Title Variants",
-      hidden: ["table"],
-      schema: {
-        type: "object",
-        properties: {
-          en: { type: "string", title: "Title (EN)" },
-          ro: { type: "string", title: "Titlu (RO)" },
-        },
-        required: ["en"],
-        additionalProperties: false,
-      },
-      ui_schema: {
-        en: {
-          "ui:autofocus": true,
-        },
-        ro: {
-          "ui:placeholder": "EN",
-        },
-      },
-    }),
+    title: text().required(),
     logo: medium({
       label: "Logo",
-      hidden: false,
-      fillable: true,
       min_items: 1,
+      mime_types: ["png", "jpg", "jpeg"],
+    }),
+    gallery: media({
       mime_types: ["png", "jpg", "jpeg"],
     }),
     content_t: jsonSchema({
@@ -85,14 +54,7 @@ export default {
         default: [],
       },
     }),
-    status: enumm({
-      label: "Status",
-      enum: ["DRAFT", "REVIEW", "PUBLISHED", "ARCHIVED"],
-      default_value: "DRAFT",
-    }),
-    published_at: datetime({
-      label: "Publish date",
-    }),
-    ...dateFields,
+    active: boolean(),
+    order: number(),
   }),
 };

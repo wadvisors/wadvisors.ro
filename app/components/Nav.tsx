@@ -12,8 +12,20 @@ export default function Nav() {
     <div className="top-0 sticky w-full z-30">
       <div className="py-10 relative">
         <div className="relative flex w-full site-container justify-between items-center z-20">
-          <nav className="hidden md:flex w-1/3">
-            <ul className="flex gap-8">
+          <nav className="flex">
+            <a
+              className="primary-focus shrink-0"
+              href="/"
+              aria-label="W Advisors"
+            >
+              <img
+                src="/wadvisors.svg"
+                className="w-auto h-24 justify-self-center mr-14"
+                alt="W Advisors"
+              />
+            </a>
+
+            <ul className="hidden md:flex gap-8 self-center">
               {pages.map(
                 ({
                   id,
@@ -28,10 +40,10 @@ export default function Nav() {
                     <NavLink
                       viewTransition={true}
                       to={{
-                        pathname: handle === "home" ? "/" : `/${handle}`,
+                        pathname: `/${handle}`,
                         search: `lang=${language}`,
                       }}
-                      className="nav__link--base flex w-full items-center"
+                      className="nav__link--base flex w-full items-center [.active]:text-primary-500 [.active]:border-b [.active]:border-primary-500"
                     >
                       {title}
                     </NavLink>
@@ -40,28 +52,16 @@ export default function Nav() {
               )}
             </ul>
           </nav>
-          <a
-            className="primary-focus shrink-0"
-            href="/"
-            aria-label="W Advisors"
-          >
-            <img
-              src="/wadvisors.svg"
-              className="w-auto h-24 justify-self-center mx-14"
-              alt="W Advisors"
-            />
-          </a>
-          <div className="w-1/3 flex justify-end">
-            <div className="flex gap-8">
-              <LangSwitcher />
-              <Button variant="secondary" href="/contact">
-                Contact
-              </Button>
-            </div>
+
+          <div className="flex gap-8">
+            <LangSwitcher />
+            <Button variant="secondary" href="/contact">
+              Contact
+            </Button>
           </div>
         </div>
-        <div className="absolute backdrop-blur-lg mask-b-from-50% top-0 left-0 w-full h-full z-0 bg-gradient-to-b from-white to-transparent "></div>
       </div>
+      <div className="absolute backdrop-blur-lg mask-b-from-50% top-0 left-0 w-full h-full z-0 bg-gradient-to-b from-white to-transparent "></div>
     </div>
   );
 

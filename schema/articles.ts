@@ -1,5 +1,4 @@
 import { medium, entity, text, jsonSchema, enumm, datetime } from "bknd";
-import dateFields from "./date-fields";
 
 export default {
   articles: entity("articles", {
@@ -37,8 +36,6 @@ export default {
     }),
     cover: medium({
       label: "Cover",
-      hidden: false,
-      fillable: true,
       min_items: 1,
       mime_types: ["png", "jpg", "jpeg"],
     }),
@@ -87,12 +84,11 @@ export default {
     }),
     status: enumm({
       label: "Status",
-      enum: ["DRAFT", "REVIEW", "PUBLISHED", "ARCHIVED"],
+      enum: ["DRAFT", "PUBLISHED", "ARCHIVED"],
       default_value: "DRAFT",
-    }),
+    }).required(),
     published_at: datetime({
       label: "Publish date",
-    }),
-    ...dateFields,
+    }).required(),
   }),
 };
