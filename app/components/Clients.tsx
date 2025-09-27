@@ -11,13 +11,18 @@ export default function Clients() {
         if (!logo.path) return;
 
         return (
-          <li key={id} className="flex flex-col gap-4 items-center p-0">
-            <img
-              alt={title}
-              className="m-0 p-0 self-start border-none aspect-video grayscale hover:grayscale-0 cursor-pointer"
-              loading="lazy"
-              src={`/api/_plugin/image/optimize/${encodeURIComponent(logo?.path)}?width=512&height=244&fit=scale-down`}
-            />
+          <li
+            key={id}
+            className="flex flex-col gap-4 items-center align-center p-0"
+          >
+            <figure className="aspect-video overflow-hidden">
+              <img
+                alt={title}
+                className="m-0 p-0 self-start border-none grayscale hover:grayscale-0 cursor-pointer w-auto h-auto"
+                loading="lazy"
+                src={`/api/_plugin/image/optimize/${encodeURIComponent(logo?.path)}?width=512&height=244&fit=scale-down`}
+              />
+            </figure>
           </li>
         );
       })}
