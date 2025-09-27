@@ -11,14 +11,6 @@ export default {
         },
       },
     }),
-    logo: medium({
-      label: "Logo",
-      min_items: 1,
-      mime_types: ["png", "jpg", "jpeg"],
-    }),
-    gallery: media({
-      mime_types: ["png", "jpg", "jpeg"],
-    }),
     content_t: jsonSchema({
       label: "Content Variants",
       hidden: ["table"],
@@ -61,6 +53,14 @@ export default {
         },
         default: [],
       },
+    }),
+    logo: medium({
+      label: "Logo",
+      min_items: 1,
+      mime_types: ["png", "jpg", "jpeg"],
+    }),
+    gallery: media({
+      mime_types: ["png", "jpg", "jpeg"],
     }),
     active: boolean(),
     order: number(),

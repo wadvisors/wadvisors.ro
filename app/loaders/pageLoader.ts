@@ -12,7 +12,7 @@ async function pageLoader(args: LoaderFunctionArgs) {
   // -- menu
   const { data: pages } = await api.data.readMany("pages", {
     select: ["id", "title_t", "handle"],
-    where: { active: true, handle: { $ne: "home" } },
+    where: { active: true, order: { $ne: "" } },
     sort: "order",
   });
 
