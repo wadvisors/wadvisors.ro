@@ -3,9 +3,7 @@ import { medium, entity, jsonSchema, boolean, text, datetime } from "bknd";
 export default {
   press: entity("press", {
     title: text({
-      label: "Title",
-      description: "Auto generated",
-      hidden: ["submit"],
+      hidden: ["submit", "create", "form", "update"],
       html_config: {
         element: "input",
         props: {
@@ -27,7 +25,7 @@ export default {
       },
     }),
     location: text({}).required(),
-    content: jsonSchema({
+    content_t: jsonSchema({
       label: "Content",
       hidden: ["table"],
       schema: {
@@ -58,7 +56,7 @@ export default {
     }),
     document: medium({
       min_items: 1,
-      mime_types: ["pdf"],
+      mime_types: ["application/pdf"],
     }),
     publishedAt: datetime({
       label: "Published At",
