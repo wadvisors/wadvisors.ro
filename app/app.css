@@ -83,14 +83,3 @@
     @apply font-heading-1 py-2 tracking-wide uppercase transition duration-200 hover:opacity-80;
   }
 }
-
-@layer utilities {
-  /* main gradient. Used for categories and some headings */
-  .main-text-gradient {
-    @apply bg-gradient-to-r from-indigo-600 to-sky-600 bg-clip-text text-transparent;
-  }
-
-  .rotate-180 {
-    @apply rotate-180;
-  }
-}

@@ -10,7 +10,7 @@
 }
 
 /* text coloring for most items */
-.markdown-content
+/*.markdown-content
   :not(
     pre *,
     .admonition *,
@@ -25,12 +25,12 @@
     h5,
     h6
   ):not(:where(.not-content *)) {
-  @apply text-base-900/85;
-}
+  @apply text-primary-900/85;
+}*/
 
 /* paragraph spacing except for paragraphs inside list items */
 .markdown-content p:not(li p):not(:where(.not-content *)) {
-  @apply mt-3;
+  @apply mt-3 font-mono text-primary-800;
 }
 
 /* Headings after non-headings have more spacing. */
@@ -41,14 +41,14 @@
 }
 
 .markdown-content :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
-  @apply text-base-900 font-heading-1 mt-2 mb-4 font-medium;
+  @apply text-primary-900 font-heading-1 mt-2 mb-4 font-medium;
 }
 
 .markdown-content h1:not(:where(.not-content *)) {
   @apply text-3xl font-medium md:text-4xl;
 }
 .markdown-content h2:not(:where(.not-content *)) {
-  @apply text-2xl font-medium md:text-3xl;
+  @apply text-2xl font-medium md:text-3xl text-balance;
 }
 .markdown-content h3:not(:where(.not-content *)) {
   @apply text-xl font-medium md:text-2xl;
@@ -57,10 +57,10 @@
   @apply text-lg font-medium md:text-xl;
 }
 .markdown-content h5:not(:where(.not-content *)) {
-  @apply text-base-900/80 font-medium md:text-lg;
+  @apply text-primary-900/80 font-medium md:text-lg;
 }
 .markdown-content h6:not(:where(.not-content *)) {
-  @apply text-base-900/80 font-medium md:text-lg;
+  @apply text-primary-900/80 font-medium md:text-lg;
 }
 
 /* anchor tags */
@@ -91,10 +91,10 @@
     @apply mx-1.5 bg-transparent;
   }
   &::-webkit-scrollbar-thumb {
-    @apply bg-base-600 rounded-full;
+    @apply bg-primary-600 rounded-full;
   }
   &::-webkit-scrollbar-thumb:hover {
-    @apply bg-base-500;
+    @apply bg-primary-500;
   }
 }
 
@@ -117,12 +117,12 @@
 
 /* italics */
 .markdown-content em:not(:where(.not-content *)) {
-  @apply text-base-900 italic;
+  @apply text-primary-900 italic;
 }
 
 /* bold */
 .markdown-content strong:not(:where(.not-content *)) {
-  @apply text-base-900 font-bold;
+  @apply text-primary-900 font-bold;
 }
 
 /* lists */
@@ -149,7 +149,7 @@
 .markdown-content :is(ol):not(:where(.not-content *)) {
   @apply list-decimal;
   ::marker {
-    @apply text-base-900/60;
+    @apply text-primary-900/60;
   }
 }
 
@@ -181,7 +181,7 @@
   padding-inline-end: 0;
 }
 .markdown-content th:not(:where(.not-content *)) {
-  @apply text-base-900 font-heading-1 font-medium;
+  @apply text-primary-900 font-heading-1 font-medium;
 }
 /* Align headings to the start of the line unless set by the `align` attribute. */
 .markdown-content th:not([align]):not(:where(.not-content *)) {

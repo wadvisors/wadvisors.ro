@@ -78,6 +78,13 @@ export default {
                     handle: slugify(data.title_t.en),
                   }),
                 };
+              case "clients":
+                return {
+                  ...data,
+                  ...(data.title && {
+                    handle: slugify(data.title),
+                  }),
+                };
               case "press":
                 return {
                   ...data,
@@ -101,6 +108,13 @@ export default {
                   ...(data.title_t?.en && {
                     title: data.title_t.en,
                     handle: slugify(data.title_t.en),
+                  }),
+                };
+              case "clients":
+                return {
+                  ...data,
+                  ...(data.title && {
+                    handle: slugify(data.title),
                   }),
                 };
               case "press":

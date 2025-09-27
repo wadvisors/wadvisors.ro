@@ -6,7 +6,7 @@ import "../app.css";
 
 export const loader: LoaderFunction = pageLoader;
 
-export function meta({ loaderData }: Route.MetaArgs) {
+export function meta({}: Route.MetaArgs) {
   const { page } = useRouteLoaderData("routes/_");
 
   return [

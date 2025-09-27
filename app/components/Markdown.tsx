@@ -1,5 +1,4 @@
 import Markdown from "markdown-to-jsx";
-import { useState } from "react";
 import Button from "./Button";
 import Portfolio from "./Portfolio";
 import Team from "./Team";
@@ -29,9 +28,6 @@ export default function MarkdownRenderer({
               rel: "noopener noreferrer",
               variant: "link",
             },
-          },
-          newsletter: {
-            component: Newsletter,
           },
           portfolio: {
             component: Portfolio,

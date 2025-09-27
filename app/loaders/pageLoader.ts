@@ -42,11 +42,24 @@ async function pageLoader(args: LoaderFunctionArgs) {
     limit: 1,
   });
 
+  const { data: clients } = await api.data.readMany("clients", {
+    select: ["id", "title", "handle"],
+    where: { active: true },
+    with: {
+      logo: {
+        select: ["path"],
+      },
+    },
+    sort: "order",
+  });
+
   return transformContent(
     {
+      language,
       page: page[0],
       team,
       pages,
+      clients,
     },
     language,
   );

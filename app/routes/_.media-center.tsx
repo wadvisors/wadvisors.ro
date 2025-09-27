@@ -7,6 +7,7 @@ import {
 } from "react-router";
 import pressLoader from "~/loaders/pressLoader";
 import Markdown from "~/components/Markdown";
+import { DownloadIcon } from "lucide-react";
 
 export const loader: LoaderFunction = pressLoader;
 
@@ -33,19 +34,21 @@ export default function Generic() {
           return (
             <li key={id} className="flex gap-8">
               <img
-                className="m-0 p-0 w-1/4 self-start"
+                className="m-0 p-0 w-1/4 self-start rounded shadow"
                 loading="lazy"
                 src={`/api/_plugin/image/optimize/${encodeURIComponent(cover.path)}?width=720&height=540&fit=cover`}
               />
               <div>
-                <h2 className="h3">{title}</h2>
-                <p>{content}</p>
+                <h2 className="h3 normal-case font-mono">{title}</h2>
+                <p className="font-mono mt-4 text-primary-700">{content}</p>
 
                 {document?.path && (
                   <a
+                    className="flex gap-2 mt-4 font-mono hover:underline"
                     href={`/api/media/file/${document?.path}`}
                     download={slugify(title)}
                   >
+                    <DownloadIcon className="text-primary-500" />
                     Download
                   </a>
                 )}

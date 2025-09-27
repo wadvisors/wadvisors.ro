@@ -25,7 +25,7 @@ export default function Team({}) {
               className="p-0 m-0 list-none flex md:gap-12 [&:nth-child(even)_img]:order-last"
             >
               <img
-                className="m-0 p-0 w-1/3 self-start"
+                className="m-0 p-0 w-1/3 self-start shadow"
                 loading="lazy"
                 src={`/api/_plugin/image/optimize/${encodeURIComponent(avatar.path)}?width=720&height=1080&fit=cover`}
               />
@@ -36,11 +36,11 @@ export default function Team({}) {
                   {position}
                 </strong>
                 <p
-                  className="opacity-80 text-lg
+                  className="font-mono text-primary-800 text-pretty
                   first-letter:font-serif
                   first-letter:text-6xl
                   first-letter:mr-2
-                  first-letter:-mb-1
+                  first-letter:-mb-2
                   first-letter:font-extralight
                   first-letter:float-left"
                 >

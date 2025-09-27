@@ -3,6 +3,14 @@ import { medium, media, entity, text, jsonSchema, boolean, number } from "bknd";
 export default {
   clients: entity("clients", {
     title: text().required(),
+    handle: text({
+      hidden: ["table", "update", "form", "create"],
+      html_config: {
+        props: {
+          readonly: "true",
+        },
+      },
+    }),
     logo: medium({
       label: "Logo",
       min_items: 1,

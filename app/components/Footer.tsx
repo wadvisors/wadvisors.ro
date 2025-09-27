@@ -7,7 +7,7 @@ export default function Footer() {
   const { env } = useRouteLoaderData("root");
 
   return (
-    <footer className="bg-base-100/40 mt-12 flex flex-col items-center justify-center py-8">
+    <footer className="bg-base-100/40 flex flex-col items-center justify-center py-8">
       <div className="site-container">
         <div className="flex w-full flex-col items-center justify-between gap-2 text-lg md:grid md:grid-cols-5">
           <div className="flex justify-center py-2 text-center md:hidden">

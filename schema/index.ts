@@ -56,7 +56,7 @@ export default em(
 
     // -- indexes
     index(pages).on(["active"]);
-    index(pages).on(["handle"]);
+    index(pages).on(["handle"], true);
     index(pages).on(["order"]);
     index(team).on(["active"]);
     index(team).on(["order"]);
@@ -64,5 +64,6 @@ export default em(
     index(press).on(["publishedAt"]);
     index(clients).on(["active"]);
     index(clients).on(["order"]);
+    index(clients).on(["handle"], true);
   },
 ).toJSON();
