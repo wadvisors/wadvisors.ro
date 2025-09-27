@@ -2,9 +2,12 @@ export default function Tags({ tags = [] }) {
   if (!tags.length) return null;
 
   return (
-    <ol className="flex gap-3 items-start">
+    <ol className="flex flex-wrap gap-3 items-start m-0">
       {tags.map((t: string) => (
-        <small key={t} className="text-primary-700 bg-primary-100 rounded px-2">
+        <small
+          key={t}
+          className="bg-primary-950 text-white px-2 inline-block font-mono"
+        >
           {t}
         </small>
       ))}

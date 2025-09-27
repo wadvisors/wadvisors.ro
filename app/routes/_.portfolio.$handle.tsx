@@ -6,8 +6,8 @@ import {
   type LoaderFunction,
 } from "react-router";
 import Markdown from "~/components/Markdown";
-import Link from "~/components/Link";
 import Tags from "~/components/Tags";
+import Gallery from "~/components/Gallery";
 import clientLoader from "~/loaders/clientLoader";
 
 export const loader: LoaderFunction = clientLoader;
@@ -21,30 +21,22 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-type H1WithExtraProps = ComponentPropsWithoutRef<"h1"> & {
+type H2WithExtraProps = ComponentPropsWithoutRef<"h2"> & {
   children: ReactNode;
 };
 
-function H1WithExtra({ children, ...props }: H1WithExtraProps) {
+function H2WithExtra({ children, ...props }: H2WithExtraProps) {
   const { client } = useLoaderData();
 
   if (!client) return null;
 
-  const { title, logo, tags } = client;
+  const { tags } = client;
 
   return (
-    <div>
-      <figure className="w-full md:w-1/3 h-auto float-left md:mr-8 mb-4">
-        <img
-          alt={title}
-          className="m-0 p-0 self-start border-none"
-          loading="lazy"
-          src={`/api/_plugin/image/optimize/${encodeURIComponent(logo.path)}?width=512&height=244&fit=scale-down`}
-        />
-      </figure>
-      <h1 {...props}>{children}</h1>
+    <>
+      <h2 {...props}>{children}</h2>
       <Tags tags={tags} />
-    </div>
+    </>
   );
 }
 
@@ -53,22 +45,30 @@ export default function Index() {
 
   if (!client) return null;
 
-  const { content } = client;
+  const { content, title, logo, gallery } = client;
 
   return (
     <div className="container max-w-4xl mx-auto p-4 md:pt-12 pt-8">
+      <figure className="flex items-center w-72 mx-auto mb-12">
+        <img
+          alt={title}
+          className="border-none rounded-none mx-auto float-left h-auto self-start"
+          loading="lazy"
+          src={`/api/_plugin/image/optimize/${encodeURIComponent(logo.path)}?width=512&height=244&fit=scale-down`}
+        />
+      </figure>
+
       <Markdown
         className="markdown-content"
         content={content}
         overrides={{
-          h1: {
-            component: H1WithExtra,
-            props: {
-              className: "uppercase h2 text-pretty text-left",
-            },
+          h2: {
+            component: H2WithExtra,
           },
         }}
       />
+
+      <Gallery gallery={gallery} />
     </div>
   );
 }
