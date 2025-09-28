@@ -7,17 +7,11 @@ import { Route } from "wouter";
   https://github.com/bknd-io/bknd/pull/265
 */
 
-import { useState } from "react";
-import { type SerializedEditorState } from "lexical";
-
-import { Editor } from "~/components/blocks/editor-x/editor";
-
 export default function AdminClient(props: BkndAdminProps = {}) {
   return (
     <Admin {...props}>
       <Route path="/data/newsletter">
-        <div>Manage newsletters</div>
-        <Editor />
+        <div>WIP: Manage newsletters</div>
       </Route>
     </Admin>
   );
