@@ -12,15 +12,18 @@ import team from "./team";
 export default em(
   {
     ...pages,
-    // ...articles,
-    // ...press,
+    ...articles,
+    ...press,
     ...showcases,
     ...clients,
     ...team,
     ...users,
     ...media,
   },
-  ({ relation, index }, { pages, showcases, clients, team, users, media }) => {
+  (
+    { relation, index },
+    { pages, articles, press, showcases, clients, team, users, media },
+  ) => {
     // -- relations
     relation(pages).polyToOne(media, {
       mappedBy: "cover",
@@ -28,9 +31,9 @@ export default em(
     relation(pages).polyToMany(media, {
       mappedBy: "gallery",
     });
-    // relation(articles).manyToMany(users).polyToOne(media, {
-    //   mappedBy: "cover",
-    // });
+    relation(articles).manyToMany(users).polyToOne(media, {
+      mappedBy: "cover",
+    });
     relation(users).polyToOne(media, {
       mappedBy: "avatar",
     });
@@ -44,12 +47,12 @@ export default em(
     relation(team).polyToOne(media, {
       mappedBy: "avatar",
     });
-    // relation(press).polyToOne(media, {
-    //   mappedBy: "cover",
-    // });
-    // relation(press).polyToOne(media, {
-    //   mappedBy: "document",
-    // });
+    relation(press).polyToOne(media, {
+      mappedBy: "cover",
+    });
+    relation(press).polyToOne(media, {
+      mappedBy: "document",
+    });
 
     // -- indexes
     index(pages).on(["active"]);
@@ -57,12 +60,12 @@ export default em(
     index(pages).on(["order"]);
     index(team).on(["active"]);
     index(team).on(["order"]);
-    // index(press).on(["active"]);
-    // index(press).on(["publish_at"]);
+    index(press).on(["active"]);
+    index(press).on(["publish_at"]);
     index(clients).on(["active"]);
     index(clients).on(["order"]);
     index(clients).on(["handle"], true);
-    // index(articles).on(["status"]);
-    // index(articles).on(["publish_at"]);
+    index(articles).on(["status"]);
+    index(articles).on(["publish_at"]);
   },
 ).toJSON();

@@ -25,18 +25,6 @@ export default function Footer() {
             <FooterLink to="/contact">Contact</FooterLink>
           </div>
         </div>
-        <div className="space-y-4">
-          <div className="intersect:motion-preset-slide-up motion-delay-0">
-            First item
-          </div>
-          <div className="intersect:motion-preset-slide-up motion-delay-100">
-            Second item
-          </div>
-          <div className="intersect:motion-preset-slide-up motion-delay-200">
-            Third item
-          </div>
-        </div>
-
         <div className="text-base-500 mt-8 flex justify-center gap-4">
           <a
             href="https://x.com/WAdvisors"
