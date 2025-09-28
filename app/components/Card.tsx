@@ -1,3 +1,4 @@
+import { useRouteLoaderData } from "react-router";
 import Tags from "./Tags";
 
 interface CardProps {
@@ -14,8 +15,11 @@ interface CardProps {
 }
 
 export default function Card({ record, tags = false }: CardProps) {
+  const { language } = useRouteLoaderData("routes/_");
   const date = new Date(record.publish_at);
-  const dateFormated = new Intl.DateTimeFormat("en-US").format(date);
+  const dateFormated = new Intl.DateTimeFormat(language, {
+    dateStyle: "medium",
+  }).format(date);
 
   return (
     <article className="relative flex text-center  flex-col space-y-4 transition-opacity hover:not-tag-hover:opacity-80">

@@ -85,7 +85,8 @@ export default {
     status: enumm({
       label: "Status",
       enum: ["DRAFT", "PUBLISHED", "ARCHIVED"],
-    }).required(),
+      default_value: "DRAFT",
+    }),
     publish_at: datetime({
       label: "Publish date",
     }).required(),
