@@ -15,14 +15,13 @@ export const loader: LoaderFunction = featuredArticlesLoader;
 
 export default function Index() {
   const { page } = useRouteLoaderData("routes/_");
-  const featuredArticles = useLoaderData();
+  const { featuredArticles } = useLoaderData();
   const { first, rest } = splitMarkdown(page.content);
 
   return (
     <>
       <Hero cover={page.cover.path} content={first} />
-      <pre>{JSON.stringify(featuredArticles, null, 2)}</pre>
-      <FeaturedArticles />
+      <FeaturedArticles articles={featuredArticles} />
       <div className="site-container markdown-content mx-auto p-4 md:pt-12 pt-8">
         <Markdown content={rest} />
       </div>

@@ -6,17 +6,14 @@ async function pressLoader(args: LoaderFunctionArgs) {
   const api = args.context.bknd.apiUI;
 
   const { data: featuredArticles } = await api.data.readMany("articles", {
-    select: ["id", "location", "title_t", "content_t"],
-    where: { active: true },
+    select: ["id", "title_t", "tags", "publish_at"],
+    where: { status: "PUBLISHED" },
     with: {
       cover: {
         select: ["path"],
       },
-      document: {
-        select: ["path"],
-      },
     },
-    sort: "publishAt",
+    sort: "publish_at",
     limit: 4,
   });
 

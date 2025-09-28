@@ -1,38 +1,49 @@
-export default function Card({}) {
+import Tags from "./Tags";
+
+interface CardProps {
+  tags: boolean;
+  record: {
+    id: number;
+    title: string;
+    publish_at: string;
+    cover: {
+      path: string;
+    };
+    tags: [];
+  };
+}
+
+export default function Card({ record, tags = false }: CardProps) {
+  const date = new Date(record.publish_at);
+  const dateFormated = new Intl.DateTimeFormat("en-US").format(date);
+
   return (
-    <article className="relative space-y-4 transition-opacity hover:not-tag-hover:opacity-80">
-      <a
-        className="after:absolute after:inset-0 after:z-10"
-        href="/my-emerging-heuristics-for-assessing-ai-design/"
-      >
-        <h3 className="text-2xl font-heading-1 text-pretty">
-          My Emerging Heuristics for Assessing AI Design
+    <article className="relative flex text-center  flex-col space-y-4 transition-opacity hover:not-tag-hover:opacity-80">
+      <a className="after:absolute after:inset-0 after:z-10" href="/link/">
+        <h3 className="text-2xl font-heading-1 text-pretty mt-2">
+          {record.title}
         </h3>
       </a>
-      <div className="flex items-start gap-x-6 mt-4">
-        <div className="flex-1 space-y-4 font-normal text-primary-900">
-          <p>
-            Personal heuristics for assessing AI Design, blending insights from
-            Design and Thinking to improve clarity in digital experiences.
-          </p>
-          <div className="hidden gap-x-2 has-child:flex">
-            <a
-              className="tag btn-xs var-tag z-20"
-              href="https://glide.ektothemes.com/tag/design/"
-            >
-              Design
-            </a>
-          </div>
+      <picture className="block overflow-hidden order-first">
+        <img
+          className="m-0 p-0"
+          loading="lazy"
+          src={`/api/_plugin/image/optimize/${encodeURIComponent(record.cover.path)}?width=720&fit=scale-down`}
+        />
+        <time
+          className="block mt-4 font-monot text-neutral-500"
+          dateTime={record.publish_at}
+        >
+          {dateFormated}
+        </time>
+      </picture>
+
+      <span className="text-primary-500 underline">Read more</span>
+      {tags && (
+        <div className="flex items-start gap-x-6">
+          <Tags tags={record.tags} />
         </div>
-        <picture className="block w-28 bg-bg-50 aspect-landscape overflow-hidden mt-2 rounded xs:w-36">
-          <img
-            className="size-full object-cover"
-            src="https://glide.ektothemes.com/content/images/size/w380/format/avif/2025/06/Surreal-Cityscape-Art.jpeg"
-            alt="My Emerging Heuristics for Assessing AI Design"
-            loading="lazy"
-          />
-        </picture>
-      </div>
+      )}
     </article>
   );
 }
