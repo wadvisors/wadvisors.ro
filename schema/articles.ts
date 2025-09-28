@@ -5,7 +5,7 @@ export default {
     title: text({
       label: "Title",
       description: "Auto generated",
-      hidden: ["submit"],
+      hidden: ["submit", "create", "form", "update"],
       html_config: {
         element: "input",
         props: {
@@ -85,9 +85,8 @@ export default {
     status: enumm({
       label: "Status",
       enum: ["DRAFT", "PUBLISHED", "ARCHIVED"],
-      default_value: "DRAFT",
     }).required(),
-    published_at: datetime({
+    publish_at: datetime({
       label: "Publish date",
     }).required(),
   }),

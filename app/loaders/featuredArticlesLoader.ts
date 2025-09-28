@@ -5,7 +5,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
   const api = args.context.bknd.apiUI;
 
-  const { data: press } = await api.data.readMany("press", {
+  const { data: featuredArticles } = await api.data.readMany("articles", {
     select: ["id", "location", "title_t", "content_t"],
     where: { active: true },
     with: {
@@ -17,11 +17,12 @@ async function pressLoader(args: LoaderFunctionArgs) {
       },
     },
     sort: "publishAt",
+    limit: 4,
   });
 
   return transformContent(
     {
-      press,
+      featuredArticles,
     },
     language,
   );

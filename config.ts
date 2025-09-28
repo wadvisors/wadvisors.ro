@@ -85,6 +85,7 @@ export default {
                     handle: slugify(data.title),
                   }),
                 };
+              case "articles":
               case "press":
                 return {
                   ...data,
@@ -117,6 +118,7 @@ export default {
                     handle: slugify(data.title),
                   }),
                 };
+              case "articles":
               case "press":
                 return {
                   ...data,

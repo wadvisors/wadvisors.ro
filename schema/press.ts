@@ -58,8 +58,8 @@ export default {
       min_items: 1,
       mime_types: ["application/pdf"],
     }),
-    publishedAt: datetime({
-      label: "Published At",
+    publish_at: datetime({
+      label: "Publish date",
     }).required(),
     active: boolean(),
   }),
