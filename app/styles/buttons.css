@@ -6,19 +6,18 @@
 }
 
 .button--primary {
-  @apply bg-primary-200 text-base-900;
+  @apply bg-primary-200 text-primary-900;
   @apply hover:bg-primary-200/80;
   @apply focus-visible:ring-primary-300;
 }
 
 .button--secondary {
-  @apply border-2 bg-white/80;
-  /* @apply hover:border-opacity-80; */
+  @apply border-2 border-primary-500 bg-white/80;
   @apply focus-visible:ring-primary-200;
 }
 
 .button--outline {
-  @apply border-primary-200 text-base-900 border-2;
+  @apply border-primary-200 text-primary-900 border-2;
   @apply hover:border-primary-200/80;
   @apply focus-visible:ring-primary-200;
 }

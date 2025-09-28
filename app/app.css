@@ -6,6 +6,7 @@
 /*@plugin "@tailwindcss/forms";*/
 
 @plugin 'tailwindcss-motion';
+@plugin 'tailwindcss-intersect';
 
 /* theme definition import */
 @import "./styles/tailwind-theme.css";
@@ -65,7 +66,7 @@
   }
 
   .site-container {
-    @apply mx-auto max-w-[74rem] px-4;
+    @apply mx-auto max-w-5xl px-4;
   }
 
   /* used for various form inputs */
@@ -80,6 +81,6 @@
 
   /* styles navbar links */
   .nav__link--base {
-    @apply font-heading-1 py-2 tracking-wide uppercase transition duration-200 hover:opacity-80;
+    @apply py-1 tracking-wide font-mono transition hover:opacity-80;
   }
 }

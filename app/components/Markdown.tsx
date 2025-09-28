@@ -2,7 +2,6 @@ import Markdown from "markdown-to-jsx";
 import Button from "./Button";
 import Portfolio from "./Portfolio";
 import Team from "./Team";
-import Newsletter from "./Newsletter";
 import Clients from "./Clients";
 
 interface MarkdownRendererProps {

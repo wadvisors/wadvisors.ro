@@ -16,7 +16,7 @@ export default function Generic() {
   const { press } = useLoaderData();
 
   return (
-    <div className="container max-w-4xl mx-auto p-4 md:pt-12 pt-8">
+    <div className="site-container md:pt-12 pt-8">
       <Markdown
         className="markdown-content"
         content={page.content}
