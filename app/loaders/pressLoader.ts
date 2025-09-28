@@ -16,7 +16,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
         select: ["path"],
       },
     },
-    sort: "publishAt",
+    sort: "publish_at",
   });
 
   return transformContent(
