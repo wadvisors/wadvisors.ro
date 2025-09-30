@@ -31,7 +31,10 @@ export default em(
     relation(pages).polyToMany(media, {
       mappedBy: "gallery",
     });
-    relation(articles).manyToMany(users).polyToOne(media, {
+    relation(articles).polyToMany(media, {
+      mappedBy: "gallery",
+    });
+    relation(articles).polyToOne(media, {
       mappedBy: "cover",
     });
     relation(users).polyToOne(media, {

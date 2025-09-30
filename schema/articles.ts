@@ -1,4 +1,4 @@
-import { medium, entity, text, jsonSchema, enumm, datetime } from "bknd";
+import { medium, media, entity, text, jsonSchema, enumm, datetime } from "bknd";
 
 export default {
   articles: entity("articles", {
@@ -34,11 +34,6 @@ export default {
         },
       },
     }),
-    cover: medium({
-      label: "Cover",
-      min_items: 1,
-      mime_types: ["png", "jpg", "jpeg"],
-    }),
     content_t: jsonSchema({
       label: "Content Variants",
       hidden: ["table"],
@@ -71,6 +66,15 @@ export default {
           "ui:description": "Continut (RO)",
         },
       },
+    }),
+    cover: medium({
+      label: "Cover",
+      min_items: 1,
+      mime_types: ["image/png", "image/jpg", "image/jpeg"],
+    }),
+    gallery: media({
+      max_items: 50,
+      mime_types: ["image/png", "image/jpg", "image/jpeg"],
     }),
     tags: jsonSchema({
       hidden: ["table"],

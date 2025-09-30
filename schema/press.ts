@@ -52,7 +52,7 @@ export default {
     }),
     cover: medium({
       min_items: 1,
-      mime_types: ["png", "jpg", "jpeg"],
+      mime_types: ["image/png", "image/jpg", "image/jpeg"],
     }),
     document: medium({
       min_items: 1,
