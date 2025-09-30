@@ -1,4 +1,4 @@
-import { em, index } from "bknd";
+import { em } from "bknd";
 
 import pages from "./pages";
 import articles from "./articles";
