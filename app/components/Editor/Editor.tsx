@@ -176,7 +176,7 @@ export default function Editor({
     <LexicalComposer initialConfig={config}>
       <div className="editor-container">
         <ToolbarPlugin />
-        <div className="editor-inner border border-muted mt-2">
+        <div className="editor-inner border border-muted mt-2 max-h-96 overflow-scroll">
           <RichTextPlugin
             contentEditable={
               <ContentEditable
