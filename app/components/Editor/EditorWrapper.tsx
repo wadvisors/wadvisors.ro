@@ -9,8 +9,6 @@ export default function EditorWrapper({
   field: any;
   ctx: any;
 }) {
-  if (!ctx.value) return;
-
   const [data, setData] = useState(ctx.value);
   const fields = getFieldOrGroupOfFields(field.name, field, data);
 

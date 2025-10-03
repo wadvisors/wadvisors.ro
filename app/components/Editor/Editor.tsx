@@ -183,7 +183,7 @@ export default function Editor({
                 className="editor-input p-3"
                 aria-placeholder={label}
                 placeholder={
-                  <div className="editor-placeholder p-2 text-sm opacity-50">
+                  <div className="editor-placeholder p-2 text-sm text-primary/40">
                     {label}
                   </div>
                 }
