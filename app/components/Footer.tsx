@@ -1,7 +1,13 @@
 import { useRouteLoaderData } from "react-router";
 import SiteLogo from "./SiteLogo";
 import FooterLink from "./FooterLink";
-import { Instagram, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
+import {
+  TbBrandInstagram,
+  TbBrandFacebook,
+  TbBrandTwitter,
+  TbBrandLinkedin,
+  TbBrandYoutube,
+} from "react-icons/tb";
 
 export default function Footer() {
   const { env } = useRouteLoaderData("root");
@@ -31,7 +37,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Facebook className="size-6 transition hover:opacity-80" />
+            <TbBrandFacebook className="size-6 transition hover:opacity-80" />
             <span className="sr-only">Facebook</span>
           </a>
           <a
@@ -39,7 +45,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Twitter className="size-6 transition hover:opacity-80" />
+            <TbBrandTwitter className="size-6 transition hover:opacity-80" />
             <span className="sr-only">Twitter</span>
           </a>
           <a
@@ -47,7 +53,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Youtube className="size-6 transition hover:opacity-80" />
+            <TbBrandYoutube className="size-6 transition hover:opacity-80" />
             <span className="sr-only">Youtube</span>
           </a>
           <a
@@ -55,7 +61,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Instagram className="size-6 transition hover:opacity-80" />
+            <TbBrandInstagram className="size-6 transition hover:opacity-80" />
             <span className="sr-only">Instagram</span>
           </a>
         </div>

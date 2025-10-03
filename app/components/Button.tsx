@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { ArrowRight as Arrow } from "lucide-react";
+import { TbArrowRight as Arrow } from "react-icons/tb";
 
 interface Props {
   type?: "button" | "submit" | "reset";

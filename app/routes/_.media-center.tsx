@@ -7,7 +7,7 @@ import {
 } from "react-router";
 import pressLoader from "~/loaders/pressLoader";
 import Markdown from "~/components/Markdown";
-import { DownloadIcon } from "lucide-react";
+import { TbFileDownload } from "react-icons/tb";
 
 export const loader: LoaderFunction = pressLoader;
 
@@ -44,11 +44,11 @@ export default function Generic() {
 
                 {document?.path && (
                   <a
-                    className="flex gap-2 mt-4 font-mono hover:underline"
+                    className="flex gap-2 mt-4 items-center font-mono hover:underline"
                     href={`/api/media/file/${document?.path}`}
                     download={slugify(title)}
                   >
-                    <DownloadIcon className="text-primary-500" />
+                    <TbFileDownload className="text-primary-500 h-5 w-5" />
                     Download
                   </a>
                 )}

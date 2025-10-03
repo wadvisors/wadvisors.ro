@@ -1,5 +1,5 @@
 import { useRouteLoaderData, Link } from "react-router";
-import { Globe } from "lucide-react";
+import { TbWorld as Globe } from "react-icons/tb";
 
 export default function LangSwitcher() {
   const { language } = useRouteLoaderData("root");

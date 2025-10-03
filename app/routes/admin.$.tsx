@@ -1,7 +1,7 @@
-import { LetterText } from "lucide-react";
 import { lazy, Suspense, useSyncExternalStore } from "react";
 import { useRouteLoaderData } from "react-router";
 import EditorWrapper from "~/components/Editor/EditorWrapper";
+import { TbMailFast } from "react-icons/tb";
 
 const Admin = lazy(() => import("~/components/Admin.client"));
 
@@ -17,8 +17,8 @@ const config = {
     userMenu: [
       {
         label: "Newsletter",
-        icon: LetterText,
-        disabled: true,
+        icon: TbMailFast,
+        disabled: false,
         onClick: () => (window.location.href = "/admin/data/newsletter"),
       },
     ],
