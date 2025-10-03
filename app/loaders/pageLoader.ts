@@ -53,6 +53,8 @@ async function pageLoader(args: LoaderFunctionArgs) {
     sort: "order",
   });
 
+  // console.log("--->", transformContent(page[0]), language);
+
   return transformContent(
     {
       language,

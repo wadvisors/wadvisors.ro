@@ -4,7 +4,7 @@ type Localized = {
 };
 
 function getContentByLang(value: Localized, lang: string): string {
-  return value[lang] ?? value.en ?? "";
+  return (value[lang] || value.en) ?? "";
 }
 
 export default function transformContent(obj: any, lang: string): any {

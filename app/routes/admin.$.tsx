@@ -1,8 +1,14 @@
 import { LetterText } from "lucide-react";
 import { lazy, Suspense, useSyncExternalStore } from "react";
 import { useRouteLoaderData } from "react-router";
+import EditorWrapper from "~/components/Editor/EditorWrapper";
 
 const Admin = lazy(() => import("~/components/Admin.client"));
+
+/*
+  Customize Admin UI
+  https://github.com/bknd-io/bknd/pull/265
+*/
 
 const config = {
   basepath: "/admin",
@@ -16,6 +22,17 @@ const config = {
         onClick: () => (window.location.href = "/admin/data/newsletter"),
       },
     ],
+  },
+  entities: {
+    pages: {
+      fields: {
+        content_t: {
+          render: (context: any, entity: any, field: any, ctx: any) => {
+            return <EditorWrapper field={field} ctx={ctx} />;
+          },
+        },
+      },
+    },
   },
 };
 

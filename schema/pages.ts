@@ -3,6 +3,7 @@ import { media, medium, entity, text, jsonSchema, boolean, number } from "bknd";
 export default {
   pages: entity("pages", {
     title: text({
+      label: "Title",
       hidden: ["submit", "create", "form", "update"],
       html_config: {
         element: "input",
