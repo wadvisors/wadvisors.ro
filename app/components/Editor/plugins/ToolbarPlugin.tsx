@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
+import { IconButton } from "bknd/ui";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { mergeRegister } from "@lexical/utils";
 import {
@@ -149,7 +150,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item spaced"
         aria-label="Undo"
       >
-        <TbRestore />
+        <IconButton Icon={TbRestore} />
       </button>
       <button
         type="button"
@@ -158,7 +159,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item"
         aria-label="Redo"
       >
-        <TbReload />
+        <IconButton Icon={TbReload} />
       </button>
       <Divider />
 
@@ -171,7 +172,7 @@ export default function ToolbarPlugin() {
         }
         aria-label="Format Heading 1"
       >
-        <TbH1 />
+        <IconButton Icon={TbH1} />
       </button>
 
       {/* H2 */}
@@ -183,7 +184,7 @@ export default function ToolbarPlugin() {
         }
         aria-label="Format Heading 2"
       >
-        <TbH2 />
+        <IconButton Icon={TbH2} />
       </button>
 
       {/* H3 */}
@@ -195,7 +196,7 @@ export default function ToolbarPlugin() {
         }
         aria-label="Format Heading 3"
       >
-        <TbH3 />
+        <IconButton Icon={TbH3} />
       </button>
 
       <Divider />
@@ -207,7 +208,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isBold ? "active" : "")}
         aria-label="Format Bold"
       >
-        {isBold ? <TbBoldOff /> : <TbBold />}
+        <IconButton Icon={isBold ? TbBoldOff : TbBold} />
       </button>
       <button
         type="button"
@@ -215,7 +216,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isItalic ? "active" : "")}
         aria-label="Format Italics"
       >
-        <TbItalic />
+        <IconButton Icon={TbItalic} />
       </button>
       <button
         type="button"
@@ -223,7 +224,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isUnderline ? "active" : "")}
         aria-label="Format Underline"
       >
-        <TbUnderline />
+        <IconButton Icon={TbUnderline} />
       </button>
       <button
         type="button"
@@ -233,7 +234,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isStrikethrough ? "active" : "")}
         aria-label="Format Strikethrough"
       >
-        <TbStrikethrough />
+        <IconButton Icon={TbStrikethrough} />
       </button>
     </div>
   );
