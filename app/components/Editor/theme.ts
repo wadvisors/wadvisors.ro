@@ -10,8 +10,8 @@ export default {
   code: "font-mono bg-gray-100 text-sm p-1 rounded",
   heading: {
     h1: "text-2xl font-bold mb-6",
-    h2: "text-xl font-semibold mb-4",
-    h3: "text-xl font-semibold mb-3",
+    h2: "text-xl font-bold mb-3",
+    h3: "text-xl mb-3",
     h4: "text-lg font-semibold mb-2",
     h5: "text-base font-semibold mb-1",
   },
