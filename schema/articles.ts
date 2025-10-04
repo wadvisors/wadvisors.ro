@@ -87,7 +87,6 @@ export default {
       },
     }),
     status: enumm({
-      label: "Status",
       enum: ["DRAFT", "PUBLISHED", "ARCHIVED"],
       default_value: "DRAFT",
     }),

@@ -5,13 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AutoFocusPlugin } from "@lexical/react/LexicalAutoFocusPlugin";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
+import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { $convertFromMarkdownString, TRANSFORMERS } from "@lexical/markdown";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import TransformToMdAndSyncPlugin from "./plugins/TransformToMdAndSyncPlugin";
@@ -195,6 +196,7 @@ export default function Editor({
           <AutoFocusPlugin />
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
           <TransformToMdAndSyncPlugin onChange={onChange} />
+          <ListPlugin />
           {/*<TreeViewPlugin />*/}
         </div>
       </div>

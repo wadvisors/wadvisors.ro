@@ -12,7 +12,7 @@ export default function LangSwitcher() {
       to={!switchToLanguage ? "?" : `?lang=${switchToLanguage}`}
       className="nav__link--base flex items-center uppercase"
     >
-      <Globe className="p-1 text-primary-700" />
+      <Globe className=" text-primary-500 mr-1 h-lh" />
       {switchToLanguage}
     </Link>
   );

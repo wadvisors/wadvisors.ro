@@ -2,6 +2,7 @@ import type { Route } from "./+types/_";
 import { Outlet, type LoaderFunction, useRouteLoaderData } from "react-router";
 import BaseLayout from "~/components/Layout";
 import pageLoader from "~/loaders/pageLoader";
+
 import "../app.css";
 
 export const links: Route.LinksFunction = () => [

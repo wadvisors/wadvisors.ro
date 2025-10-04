@@ -1,4 +1,4 @@
-import { DatabaseEvents, type ModuleBuildContext } from "bknd";
+import { DatabaseEvents, type ModuleBuildContext, resendEmail } from "bknd";
 import { slugify } from "bknd/utils";
 import type { CloudflareBkndConfig } from "bknd/adapter/cloudflare";
 import { cloudflareImageOptimization } from "bknd/plugins";
@@ -30,15 +30,16 @@ export default {
             secret: env.SECRET,
           },
           guard: { enabled: env.ENVIRONMENT !== "development" },
+          // guard: { enabled: true },
           roles: {
             EDITOR: {
               is_default: true,
               implicit_allow: false,
               permissions: [
                 "system.access.api",
-                "media.file.read",
-                "media.file.upload",
-                "data.entity.create",
+                // "media.file.read",
+                // "media.file.upload",
+                // "data.entity.create",
                 "data.entity.read",
               ],
             },
@@ -64,6 +65,9 @@ export default {
             accessUrl: "/api/_plugin/image/optimize",
           }),
         ],
+        drivers: {
+          email: resendEmail({ apiKey: env.RESEND_TOKEN }),
+        },
       },
       onBuilt: async (app) => {
         app.emgr.onEvent(
@@ -92,6 +96,12 @@ export default {
                   ...(data.title_t?.en && {
                     title: data.title_t.en,
                   }),
+                };
+              case "subscribers":
+                return {
+                  ...data,
+                  subscribed_at: new Date(),
+                  status: "INACTIVE",
                 };
               default:
                 return data;
@@ -125,6 +135,23 @@ export default {
                   ...(data.title_t?.en && {
                     title: data.title_t.en,
                   }),
+                };
+              case "subscribers_":
+                console.log("subscribers =>", data);
+
+                const res = await app.drivers?.email?.send(
+                  "hello@wadvisors.ro",
+                  "email subject",
+                  {
+                    text: "test email",
+                    html: "<strong>test email html</strong>",
+                  },
+                );
+
+                console.log("res", res);
+
+                return {
+                  ...data,
                 };
               default:
                 return data;

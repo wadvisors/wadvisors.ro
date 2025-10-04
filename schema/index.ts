@@ -8,6 +8,7 @@ import press from "./press";
 import media from "./media";
 import users from "./users";
 import team from "./team";
+import subscribers from "./subscribers";
 
 export default em(
   {
@@ -17,12 +18,23 @@ export default em(
     ...showcases,
     ...clients,
     ...team,
+    ...subscribers,
     ...users,
     ...media,
   },
   (
     { relation, index },
-    { pages, articles, press, showcases, clients, team, users, media },
+    {
+      pages,
+      articles,
+      press,
+      showcases,
+      clients,
+      team,
+      subscribers,
+      users,
+      media,
+    },
   ) => {
     // -- relations
     relation(pages).polyToOne(media, {
@@ -70,5 +82,8 @@ export default em(
     index(clients).on(["handle"], true);
     index(articles).on(["status"]);
     index(articles).on(["publish_at"]);
+    index(subscribers).on(["email"], true);
+    index(subscribers).on(["status"]);
+    index(subscribers).on(["resend_id"], true);
   },
 ).toJSON();
