@@ -138,17 +138,21 @@ export default {
                     title: data.title_t.en,
                   }),
                 };
-              case "subscribers_":
+              case "subscribers":
                 console.log("subscribers =>", data);
 
-                const res = await app.drivers?.email?.send(
-                  "hello@wadvisors.ro",
-                  "email subject",
-                  {
-                    text: "test email",
-                    html: "<strong>test email html</strong>",
-                  },
-                );
+                // const res = await env.SEND_EMAIL.send();
+
+                // console.log("---->", res);
+
+                // const res = await app.drivers?.email?.send(
+                //   "hello@wadvisors.ro",
+                //   "email subject",
+                //   {
+                //     text: "test email",
+                //     html: "<strong>test email html</strong>",
+                //   },
+                // );
 
                 console.log("res", res);
 
