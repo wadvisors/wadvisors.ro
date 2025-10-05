@@ -37,7 +37,7 @@ export default {
               implicit_allow: false,
               permissions: [
                 "system.access.api",
-                // "media.file.read",
+                "media.file.read",
                 // "media.file.upload",
                 // "data.entity.create",
                 "data.entity.read",
