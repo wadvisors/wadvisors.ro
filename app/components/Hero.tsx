@@ -28,7 +28,7 @@ export default function Hero({ cover, content }: HeroProps) {
               h1: {
                 props: {
                   className:
-                    "motion-opacity-in-0 lowercase motion-translate-y-in-100 motion-blur-in-md font-mono text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
+                    "motion-opacity-in-0 text-base-600 lowercase motion-translate-y-in-100 motion-blur-in-md font-mono text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
                 },
               },
               p: {

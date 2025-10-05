@@ -16,6 +16,9 @@ import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { $convertFromMarkdownString, TRANSFORMERS } from "@lexical/markdown";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import TransformToMdAndSyncPlugin from "./plugins/TransformToMdAndSyncPlugin";
+import LinkPlugin from "./plugins/LinkPlugin";
+
+import "./style.css";
 
 import type {
   DOMConversionMap,
@@ -35,8 +38,6 @@ import theme from "./theme";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import TreeViewPlugin from "./plugins/TreeViewPlugin";
 import { parseAllowedColor, parseAllowedFontSize } from "./styleConfig";
-
-const placeholder = "Enter./themet...";
 
 const removeStylesExportDOM = (
   editor: LexicalEditor,
@@ -181,7 +182,7 @@ export default function Editor({
           <RichTextPlugin
             contentEditable={
               <ContentEditable
-                className="editor-input p-3"
+                className="editor-input p-3 min-h-24"
                 aria-placeholder={label}
                 placeholder={
                   <div className="editor-placeholder p-2 text-sm text-primary/40">
@@ -197,6 +198,7 @@ export default function Editor({
           <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
           <TransformToMdAndSyncPlugin onChange={onChange} />
           <ListPlugin />
+          <LinkPlugin />
           {/*<TreeViewPlugin />*/}
         </div>
       </div>

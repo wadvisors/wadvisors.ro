@@ -1,0 +1,15 @@
+.underline {
+  text-decoration: underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-blue-600 {
+  color: cornflowerblue;
+}
+
+.min-h-24 {
+  min-height: 10rem;
+}

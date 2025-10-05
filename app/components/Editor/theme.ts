@@ -16,7 +16,7 @@ export default {
     h5: "text-base font-semibold mb-1",
   },
   image: "max-w-full h-auto rounded-lg shadow",
-  link: "text-blue-600 underline hover:text-blue-800",
+  link: "text-blue-600 underline cursor-pointer",
   list: {
     listitem: "ml-6 list-disc",
     nested: {
