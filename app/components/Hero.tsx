@@ -21,14 +21,14 @@ export default function Hero({ cover, content }: HeroProps) {
         }}
       ></div>
       <div className="flex w-full justify-items-end gap-10 pb-20 text-center md:text-left backdrop-blur md:mask-r-from-30% bg-gradient-to-r from-white/50 to-transparent">
-        <div className="text-base-500 site-container mt-auto w-full flex-col">
+        <div className="site-container mt-auto w-full flex-col">
           <Markdown
             content={content}
             overrides={{
               h1: {
                 props: {
                   className:
-                    "motion-opacity-in-0 motion-translate-y-in-100 motion-blur-in-md font-heading-1 text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
+                    "motion-opacity-in-0 lowercase motion-translate-y-in-100 motion-blur-in-md font-mono text-4xl text-pretty md:text-5xl md:leading-tight inline-block md:w-1/2",
                 },
               },
               p: {

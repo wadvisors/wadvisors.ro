@@ -10,9 +10,9 @@ export default function LangSwitcher() {
     <Link
       viewTransition={true}
       to={!switchToLanguage ? "?" : `?lang=${switchToLanguage}`}
-      className="nav__link--base flex items-center uppercase"
+      className="flex text-base-400 my-auto uppercase font-mono"
     >
-      <Globe className=" text-primary-500 mr-1 h-lh" />
+      <Globe className=" text-base-200 mr-1 h-lh" />
       {switchToLanguage}
     </Link>
   );

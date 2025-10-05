@@ -33,12 +33,10 @@ export default function Team({}) {
                 <div
                   className={`px-8 self-center intersect:motion-preset-slide-up motion-delay-${i * 100}`}
                 >
-                  <strong className="block mb-1 text-primary-400 font-light">
-                    {position}
-                  </strong>
+                  <strong className="block mb-1 font-light">{position}</strong>
                   <h3 className="my-0 mb-8">{name}</h3>
                   <p
-                    className="font-mono text-primary-800 text-pretty
+                    className="font-mono text-pretty
                   first-letter:font-serif
                   first-letter:text-6xl
                   first-letter:mr-2

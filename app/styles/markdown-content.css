@@ -30,25 +30,25 @@
 
 /* paragraph spacing except for paragraphs inside list items */
 .markdown-content p:not(li p):not(:where(.not-content *)) {
-  @apply mt-3 font-mono text-primary-800;
+  @apply mt-3 font-mono;
 }
 
 /* Headings after non-headings have more spacing. */
 .markdown-content
   :not(h1, h2, h3, h4, h5, h6)
   + :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
-  @apply mt-10 mb-4;
+  @apply mb-4;
 }
 
-.markdown-content :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
-  @apply text-primary-900 font-heading-1 mt-2 mb-4 font-extralight;
+.markdown-content :is(h1):not(:where(.not-content *)) {
+  @apply font-heading-1 mt-2 mb-4 font-extralight;
 }
 
 .markdown-content h1:not(:where(.not-content *)) {
   @apply text-3xl font-medium md:text-4xl;
 }
 .markdown-content h2:not(:where(.not-content *)) {
-  @apply text-2xl font-medium md:text-3xl text-balance;
+  @apply text-2xl font-light text-center md:text-3xl text-balance opacity-80;
 }
 .markdown-content h3:not(:where(.not-content *)) {
   @apply text-xl font-medium md:text-2xl;
@@ -57,15 +57,15 @@
   @apply text-lg font-medium md:text-xl;
 }
 .markdown-content h5:not(:where(.not-content *)) {
-  @apply text-primary-900/80 font-medium md:text-lg;
+  @apply opacity-80 font-medium md:text-lg;
 }
 .markdown-content h6:not(:where(.not-content *)) {
-  @apply text-primary-900/80 font-medium md:text-lg;
+  @apply opacity-80 font-medium md:text-lg;
 }
 
 /* anchor tags */
 .markdown-content a:not(:where(.not-content *)) {
-  @apply text-primary-700 hover:text-primary-800 underline transition-colors;
+  @apply text-primary-500 hover:text-primary-800 underline transition-colors;
 }
 
 /* code */
@@ -74,11 +74,6 @@
 }
 .markdown-content :is(h1, h2, h3, h4, h5, h6) code {
   @apply text-inherit;
-}
-
-/* code block styling */
-.markdown-content .expressive-code:not(:where(.not-content *)) {
-  @apply mt-4;
 }
 
 .markdown-content pre:not(:where(.not-content *)) {
@@ -91,17 +86,11 @@
     @apply mx-1.5 bg-transparent;
   }
   &::-webkit-scrollbar-thumb {
-    @apply bg-primary-600 rounded-full;
+    @apply bg-base-600 rounded-full;
   }
   &::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-500;
+    @apply bg-base-500;
   }
-}
-
-/* reset styling for code blocks */
-.markdown-content pre code:not(:where(.not-content *)) {
-  all: unset;
-  @apply font-mono;
 }
 
 /* blockquotes */
@@ -121,12 +110,12 @@
 
 /* italics */
 .markdown-content em:not(:where(.not-content *)) {
-  @apply text-primary-900 italic;
+  @apply italic;
 }
 
 /* bold */
 .markdown-content strong:not(:where(.not-content *)) {
-  @apply text-primary-900 font-bold;
+  @apply font-bold;
 }
 
 /* lists */
@@ -153,7 +142,7 @@
 .markdown-content :is(ol):not(:where(.not-content *)) {
   @apply list-decimal;
   ::marker {
-    @apply text-primary-900/60;
+    @apply opacity-60;
   }
 }
 
@@ -185,7 +174,7 @@
   padding-inline-end: 0;
 }
 .markdown-content th:not(:where(.not-content *)) {
-  @apply text-primary-900 font-heading-1 font-medium;
+  @apply font-heading-1 font-medium;
 }
 /* Align headings to the start of the line unless set by the `align` attribute. */
 .markdown-content th:not([align]):not(:where(.not-content *)) {

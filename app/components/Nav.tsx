@@ -23,7 +23,7 @@ export default function Nav() {
               />
             </a>
 
-            <ul className="hidden md:flex gap-8 self-center">
+            <ul className="hidden md:flex gap-5 self-center">
               {pages.map(
                 ({
                   id,
@@ -41,7 +41,7 @@ export default function Nav() {
                         pathname: `/${handle}`,
                         search: `lang=${language}`,
                       }}
-                      className="nav__link--base flex w-full items-center [.active]:text-primary-700 [.active]:border-b [.active]:border-primary-700"
+                      className="flex w-full font-mono items-center text-base-500 [.active]:text-base-950 [.active]:font-bold"
                     >
                       {title}
                     </NavLink>
@@ -53,7 +53,7 @@ export default function Nav() {
 
           <div className="flex gap-8">
             <LangSwitcher />
-            <Button variant="secondary" href={`/contact/?lang=${language}`}>
+            <Button variant="primary" href={`/contact/?lang=${language}`}>
               Contact
             </Button>
           </div>

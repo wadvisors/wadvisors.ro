@@ -40,7 +40,7 @@ export default function Generic() {
               />
               <div>
                 <h2 className="h3 normal-case font-mono">{title}</h2>
-                <p className="font-mono mt-4 text-primary-700">{content}</p>
+                <p className="mt-4">{content}</p>
 
                 {document?.path && (
                   <a
@@ -48,7 +48,7 @@ export default function Generic() {
                     href={`/api/media/file/${document?.path}`}
                     download={slugify(title)}
                   >
-                    <TbFileDownload className="text-primary-500 h-5 w-5" />
+                    <TbFileDownload className="h-5 w-5" />
                     Download
                   </a>
                 )}

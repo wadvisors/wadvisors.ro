@@ -1,4 +1,4 @@
-import { useRouteLoaderData } from "react-router";
+import { Link, NavLink, useRouteLoaderData } from "react-router";
 import SiteLogo from "./SiteLogo";
 import FooterLink from "./FooterLink";
 import {
@@ -11,79 +11,88 @@ import {
 
 export default function Footer() {
   const { env } = useRouteLoaderData("root");
+  const { pages, language } = useRouteLoaderData("routes/_");
 
   return (
-    <footer className="bg-base-100/40 flex flex-col items-center justify-center py-8">
-      <div className="site-container">
-        <div className="flex w-full flex-col items-center justify-between gap-2 text-lg md:grid md:grid-cols-5">
-          <div className="flex justify-center py-2 text-center md:hidden">
-            <SiteLogo />
-          </div>
-          <div className="col-span-2 flex justify-end gap-4">
-            <FooterLink to="/">Home</FooterLink>
-            <FooterLink to="/portfolio">Portfolio</FooterLink>
-          </div>
-          <div className="hidden justify-center text-center md:flex">
-            <SiteLogo />
-          </div>
-          <div className="flex gap-4 md:col-span-2">
-            <FooterLink to="/team">Team</FooterLink>
-            <FooterLink to="/contact">Contact</FooterLink>
-          </div>
+    <footer className="bg-base-100/40 justify-center py-8 w-full">
+      <div className="site-container py-8 w-full flex-col md:flex-row flex justify-between gap-4">
+        <div className="flex flex-col">
+          <h4 className="h4 mb-2">Stay in touch.</h4>
         </div>
-        <div className="text-base-500 mt-8 flex justify-center gap-4">
-          <a
-            href="https://x.com/WAdvisors"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex flex-col gap-4">
+          <h4 className="h4 mb-2">Questions?</h4>
+          <NavLink
+            viewTransition={true}
+            to={{
+              pathname: `/contact`,
+              search: `lang=${language}`,
+            }}
+            className="[.active]:text-primary-700 [.active]:border-b [.active]:border-primary-700"
           >
-            <TbBrandFacebook className="size-6 transition hover:opacity-80" />
-            <span className="sr-only">Facebook</span>
-          </a>
-          <a
-            href="https://x.com/WAdvisors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <TbBrandTwitter className="size-6 transition hover:opacity-80" />
-            <span className="sr-only">Twitter</span>
-          </a>
-          <a
-            href="https://x.com/WAdvisors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <TbBrandYoutube className="size-6 transition hover:opacity-80" />
-            <span className="sr-only">Youtube</span>
-          </a>
-          <a
-            href="https://x.com/WAdvisors"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <TbBrandInstagram className="size-6 transition hover:opacity-80" />
-            <span className="sr-only">Instagram</span>
-          </a>
-        </div>
-        <div className="mt-6 mb-2 text-center text-sm opacity-80 flex items-center justify-center">
-          &copy; 2025
-        </div>
-        <div className="font-extralight text-xs opacity-50 font-mono flex gap-2 items-center justify-center">
-          <em className="not-italic">
-            Built on{" "}
+            Contact us
+          </NavLink>
+          <div className="flex gap-4">
             <a
-              className="hover:underline"
+              href="https://x.com/WAdvisors"
               target="_blank"
-              href="https://bknd.io"
+              rel="noopener noreferrer"
             >
-              bknd.io{" "}
-              <span className="text-red-600 animation animate-pulse">♥</span>
+              <TbBrandFacebook className="size-6 transition hover:opacity-80" />
+              <span className="sr-only">Facebook</span>
             </a>
-          </em>
-          <span className="bg-white rounded p-1">{env.WORKERS_CI_BRANCH}</span>
-          <span className="bg-white rounded p-1 slashed-zero proportional-nums">
-            {env.WORKERS_CI_COMMIT_SHA.slice(0, 7)}
-          </span>
+            <a
+              href="https://x.com/WAdvisors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbBrandTwitter className="size-6 transition hover:opacity-80" />
+              <span className="sr-only">Twitter</span>
+            </a>
+            <a
+              href="https://x.com/WAdvisors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbBrandYoutube className="size-6 transition hover:opacity-80" />
+              <span className="sr-only">Youtube</span>
+            </a>
+            <a
+              href="https://x.com/WAdvisors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbBrandInstagram className="size-6 transition hover:opacity-80" />
+              <span className="sr-only">Instagram</span>
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <ul className="grid md:grid-cols-2 gap-2 md:gap-x-8">
+            {pages.map(
+              ({
+                id,
+                handle,
+                title,
+              }: {
+                id: number;
+                handle: string;
+                title: string;
+              }) => (
+                <li key={id}>
+                  <NavLink
+                    viewTransition={true}
+                    to={{
+                      pathname: `/${handle}`,
+                      search: `lang=${language}`,
+                    }}
+                    className=" [.active]:text-primary-700 [.active]:border-b [.active]:border-primary-700"
+                  >
+                    {title}
+                  </NavLink>
+                </li>
+              ),
+            )}
+          </ul>
         </div>
       </div>
     </footer>

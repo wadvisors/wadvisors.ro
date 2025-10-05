@@ -1,18 +1,18 @@
 /* buttons, 4 types "primary", "secondary", "outline", "ghost" */
 .button {
-  @apply font-heading-1 flex items-center justify-center rounded-none px-4 py-2 text-lg tracking-wide uppercase transition duration-200;
+  @apply font-heading-1 flex items-center justify-center rounded-none px-4 py-2 text-lg tracking-wide transition duration-200;
   @apply active:opacity-80;
   @apply disabled:pointer-events-none;
 }
 
 .button--primary {
-  @apply bg-primary-200 text-primary-900;
+  @apply bg-primary-200 text-primary-900 tracking-wide;
   @apply hover:bg-primary-200/80;
   @apply focus-visible:ring-primary-300;
 }
 
 .button--secondary {
-  @apply border-2 border-primary-500 bg-white/80;
+  @apply border-2 border-primary-400 bg-white/80;
   @apply focus-visible:ring-primary-200;
 }
 
