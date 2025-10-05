@@ -90,6 +90,7 @@ export default {
                   }),
                 };
               case "articles":
+              case "showcases":
               case "press":
                 return {
                   ...data,
@@ -129,6 +130,7 @@ export default {
                   }),
                 };
               case "articles":
+              case "showcases":
               case "press":
                 return {
                   ...data,

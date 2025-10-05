@@ -2,8 +2,20 @@ import { entity, text, jsonSchema, medium, media, boolean } from "bknd";
 
 export default {
   showcases: entity("showcases", {
-    title: jsonSchema({
+    title: text({
+      label: "Title",
+      description: "Auto generated",
+      hidden: ["submit", "create", "form", "update"],
+      html_config: {
+        element: "input",
+        props: {
+          readonly: "true",
+        },
+      },
+    }),
+    title_t: jsonSchema({
       label: "Project Title",
+      hidden: ["table"],
       schema: {
         type: "object",
         properties: {
