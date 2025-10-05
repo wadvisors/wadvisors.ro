@@ -58,14 +58,14 @@ export default function Generic() {
                     {location},{" "}
                     <time dateTime={publish_at}>{dateFormated}</time>
                   </span>
-                  <h2 className="text-xl font-heading-1 text-balance mt-2 text-base-900">
+                  <h2 className="text-2xl font-heading-1 text-balance mt-2 text-base-900">
                     {title}
                   </h2>
                   <p className="mt-4">{content}</p>
 
                   {document?.path && (
                     <a
-                      className="flex gap-2 mt-6 items-center font-mono hover:underline"
+                      className="button--outline button group gap-2 inline-flex mt-6 text-sm"
                       href={`/api/media/file/${document?.path}`}
                       download={slugify(title)}
                     >
