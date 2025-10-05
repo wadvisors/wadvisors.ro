@@ -16,6 +16,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
         select: ["path"],
       },
     },
+    limit: 400,
     sort: "-publish_at",
   });
 
