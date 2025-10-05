@@ -1,4 +1,4 @@
-import { entity, text, jsonSchema, boolean } from "bknd";
+import { entity, text, jsonSchema, medium, media, boolean } from "bknd";
 
 export default {
   showcases: entity("showcases", {
@@ -14,8 +14,9 @@ export default {
         additionalProperties: false,
       },
     }),
-    description: jsonSchema({
+    description_t: jsonSchema({
       label: "Project Description",
+      hidden: ["table"],
       schema: {
         type: "object",
         properties: {
@@ -25,12 +26,21 @@ export default {
         required: ["en"],
         additionalProperties: false,
       },
-      ui_schema: {
-        en: { "ui:widget": "textarea", "ui:options": { rows: 8 } },
-        ro: { "ui:widget": "textarea", "ui:options": { rows: 8 } },
-      },
     }),
-    link: text({ label: "Project Link" }),
+    link: text({
+      label: "Project Link",
+      pattern: "^https://[^\\s/$.?#].[^\\s]*$",
+      hidden: ["table"],
+    }),
+    cover: medium({
+      label: "Cover",
+      min_items: 1,
+      mime_types: ["image/png", "image/jpg", "image/jpeg"],
+    }),
+    gallery: media({
+      max_items: 50,
+      mime_types: ["image/png", "image/jpg", "image/jpeg"],
+    }),
     active: boolean(),
   }),
 };

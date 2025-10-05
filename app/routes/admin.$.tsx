@@ -44,6 +44,16 @@ const config = {
         },
       },
     },
+    showcases: {
+      fields: {
+        description_t: {
+          render: (context: any, entity: any, field: any, ctx: any) => {
+            if (!ctx.value) return;
+            return <EditorWrapper field={field} ctx={ctx} />;
+          },
+        },
+      },
+    },
   },
 };
 

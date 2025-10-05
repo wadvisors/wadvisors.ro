@@ -20,13 +20,22 @@ export default function EditorWrapper({
     ctx.handleChange(data);
   }, [data]);
 
-  return fields.map((f) => (
-    <Editor
-      key={f.key}
-      name={f.key}
-      value={f.initial}
-      label={f.label}
-      handleChange={patchState}
-    />
-  ));
+  return (
+    <>
+      <div className="flex flex-row gap-1 items-center self-start">
+        {field.config?.label}
+      </div>
+      {fields.map((f) => {
+        return (
+          <Editor
+            key={f.key}
+            name={f.key}
+            value={f.initial}
+            label={f.label}
+            handleChange={patchState}
+          />
+        );
+      })}
+    </>
+  );
 }

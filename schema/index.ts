@@ -68,6 +68,12 @@ export default em(
     relation(press).polyToOne(media, {
       mappedBy: "document",
     });
+    relation(showcases).polyToOne(media, {
+      mappedBy: "cover",
+    });
+    relation(showcases).polyToMany(media, {
+      mappedBy: "gallery",
+    });
 
     // -- indexes
     index(pages).on(["active"]);
@@ -77,6 +83,7 @@ export default em(
     index(team).on(["order"]);
     index(press).on(["active"]);
     index(press).on(["publish_at"]);
+    index(showcases).on(["active"]);
     index(clients).on(["active"]);
     index(clients).on(["order"]);
     index(clients).on(["handle"], true);
