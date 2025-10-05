@@ -6,7 +6,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
   const api = args.context.bknd.apiUI;
 
   const { data: press } = await api.data.readMany("press", {
-    select: ["id", "location", "title_t", "content_t"],
+    select: ["id", "location", "title_t", "content_t", "publish_at"],
     where: { active: true },
     with: {
       cover: {
@@ -16,7 +16,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
         select: ["path"],
       },
     },
-    sort: "publish_at",
+    sort: "-publish_at",
   });
 
   return transformContent(
