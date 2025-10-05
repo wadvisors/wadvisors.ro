@@ -1,9 +1,14 @@
 import type { Route } from "./+types/_.case-studies._index";
-import { useRouteLoaderData } from "react-router";
+import { useLoaderData } from "react-router";
+import { useRouteLoaderData, type LoaderFunction } from "react-router";
 import Markdown from "~/components/Markdown";
+import caseStudiesLoader from "~/loaders/caseStudiesLoader";
 
-export default function Blog({}) {
+export const loader: LoaderFunction = caseStudiesLoader;
+
+export default function Blog() {
   const { page = {} } = useRouteLoaderData("routes/_");
+  const { showcases } = useLoaderData();
 
   return (
     <div className="site-container md:pt-12 pt-8">
@@ -18,6 +23,7 @@ export default function Blog({}) {
           },
         }}
       />
+      <pre>{JSON.stringify(showcases, null, 2)}</pre>
     </div>
   );
 }

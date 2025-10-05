@@ -84,6 +84,7 @@ export default em(
     index(press).on(["active"]);
     index(press).on(["publish_at"]);
     index(showcases).on(["active"]);
+    index(showcases).on(["order"]);
     index(clients).on(["active"]);
     index(clients).on(["order"]);
     index(clients).on(["handle"], true);

@@ -1,4 +1,4 @@
-import { entity, text, jsonSchema, medium, media, boolean } from "bknd";
+import { entity, text, jsonSchema, medium, media, boolean, number } from "bknd";
 
 export default {
   showcases: entity("showcases", {
@@ -54,5 +54,6 @@ export default {
       mime_types: ["image/png", "image/jpg", "image/jpeg"],
     }),
     active: boolean(),
+    order: number(),
   }),
 };

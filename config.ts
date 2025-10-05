@@ -138,7 +138,7 @@ export default {
                     title: data.title_t.en,
                   }),
                 };
-              case "subscribers":
+              case "subscribers_":
                 console.log("subscribers =>", data);
 
                 // const res = await env.SEND_EMAIL.send();
