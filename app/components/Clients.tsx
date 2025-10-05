@@ -9,7 +9,7 @@ export default function Clients() {
   return (
     <ol className="grid md:grid-cols-8 list-none p-0 m-0 items-center gap-8">
       {clients.map(({ id, handle, title, logo }: any) => {
-        if (!logo.path) return;
+        if (!logo?.path) return;
 
         return (
           <li
