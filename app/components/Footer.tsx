@@ -18,6 +18,7 @@ export default function Footer() {
       <div className="site-container py-8 w-full flex-col md:flex-row flex justify-between gap-4">
         <div className="flex flex-col">
           <h4 className="h4 mb-2">Stay in touch.</h4>
+          <span>&copy; {new Date().getFullYear()}</span>
         </div>
         <div className="flex flex-col gap-4">
           <h4 className="h4 mb-2">Questions?</h4>
@@ -93,6 +94,25 @@ export default function Footer() {
               ),
             )}
           </ul>
+          <div className="mt-4 font-extralight text-xs opacity-50 font-mono flex gap-2 items-center justify-center">
+            <em className="not-italic">
+              Built on{" "}
+              <a
+                className="hover:underline"
+                target="_blank"
+                href="https://bknd.io"
+              >
+                bknd.io{" "}
+                <span className="text-red-600 animation animate-pulse">♥</span>
+              </a>
+            </em>
+            <span className="bg-white rounded p-1">
+              {env.WORKERS_CI_BRANCH}
+            </span>
+            <span className="bg-white rounded p-1 slashed-zero proportional-nums">
+              {env.WORKERS_CI_COMMIT_SHA.slice(0, 7)}
+            </span>
+          </div>
         </div>
       </div>
     </footer>
