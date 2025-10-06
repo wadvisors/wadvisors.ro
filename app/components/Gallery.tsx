@@ -18,7 +18,7 @@ export default function Gallery({ className = "", gallery = [] }) {
   const [index, setIndex] = useState(-1);
 
   const photos = gallery.map((img) => ({
-    src: `/api/_plugin/image/optimize/${encodeURIComponent(img?.path)}?width=512&fit=scale-down`,
+    src: `/api/_plugin/image/optimize/${encodeURIComponent(img?.path)}?width=960&fit=scale-down`,
     width: img.metadata.width,
     height: img.metadata.height,
     alt: "",
