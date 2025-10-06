@@ -46,15 +46,7 @@ export default function Blog() {
                       Show more &rarr;
                     </Link>
                   </header>
-                  <picture className="aspect-video overflow-hidden flex justify-center items-center bg-base-50 border-b border-b-base-50 relative">
-                    <picture className="aspect-video overflow-hidden flex items-center bg-base-50/50 w-32 absolute rounded-lg p-2 backdrop-blur-md border-b">
-                      <img
-                        className="m-0 p-0 w-full h-auto"
-                        loading="lazy"
-                        src={`/api/_plugin/image/optimize/${encodeURIComponent(el.clients?.logo?.path)}?width=350&fit=scale-down`}
-                      />
-                    </picture>
-
+                  <picture className="aspect-square overflow-hidden flex justify-center items-center bg-base-50 border-b border-b-base-50 relative">
                     <img
                       className="m-0 p-0 w-full h-auto"
                       loading="lazy"

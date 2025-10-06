@@ -6,11 +6,11 @@ import "react-photo-album/masonry.css";
 import "yet-another-react-lightbox/styles.css";
 
 // optional lightbox plugins
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
-import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import "yet-another-react-lightbox/plugins/thumbnails.css";
+// import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+// import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+// import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+// import Zoom from "yet-another-react-lightbox/plugins/zoom";
+// import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 export default function Gallery({ className = "", gallery = [] }) {
   if (!gallery.length) return null;
@@ -37,7 +37,7 @@ export default function Gallery({ className = "", gallery = [] }) {
         index={index}
         close={() => setIndex(-1)}
         // enable optional lightbox plugins
-        plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+        plugins={[]}
       />
     </div>
   );
