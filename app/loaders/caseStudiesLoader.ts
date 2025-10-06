@@ -6,11 +6,19 @@ async function showCasesLoader(args: LoaderFunctionArgs) {
   const api = args.context.bknd.apiUI;
 
   const { data: showcases } = await api.data.readMany("showcases", {
-    select: ["id", "title_t", "description_t"],
+    select: ["id", "title_t"],
     where: { active: true },
     with: {
       cover: {
         select: ["path"],
+      },
+      clients: {
+        select: ["id", "title", "handle"],
+        with: {
+          logo: {
+            select: ["path"],
+          },
+        },
       },
     },
     limit: 400,
