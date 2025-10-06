@@ -37,7 +37,7 @@ export default function ArticleMeta({
         <time className="block   oldstyle-nums" dateTime={publish_at}>
           {dateFormated}
         </time>
-        {estimateReadingTime(content)} min read
+        {estimateReadingTime(content)}
       </div>
     </div>
   );

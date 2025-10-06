@@ -1,5 +1,10 @@
-export default function estimateReadingTime(text = "", wpm = 225) {
+export default function estimateReadingTime(text = "", wpm = 180) {
   const words = text.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wpm);
-  return minutes;
+  const minutes = words / wpm;
+
+  if (minutes < 1) {
+    return "< 1 min read";
+  }
+
+  return `${Math.ceil(minutes)} min read`;
 }
