@@ -24,7 +24,7 @@ export default function Blog() {
           },
         }}
       />
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 gap-8">
         {showcases.length
           ? showcases.map((el) => {
               return (
@@ -51,7 +51,7 @@ export default function Blog() {
                       <img
                         className="m-0 p-0 w-full h-auto"
                         loading="lazy"
-                        src={`/api/_plugin/image/optimize/${encodeURIComponent(el.clients.logo.path)}?width=350&fit=scale-down`}
+                        src={`/api/_plugin/image/optimize/${encodeURIComponent(el.clients?.logo?.path)}?width=350&fit=scale-down`}
                       />
                     </picture>
 
