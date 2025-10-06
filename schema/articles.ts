@@ -13,6 +13,14 @@ export default {
         },
       },
     }),
+    handle: text({
+      hidden: ["table", "update", "form", "create"],
+      html_config: {
+        props: {
+          readonly: "true",
+        },
+      },
+    }),
     title_t: jsonSchema({
       label: "Title Variants",
       hidden: ["table"],

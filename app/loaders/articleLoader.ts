@@ -6,8 +6,8 @@ async function pressLoader(args: LoaderFunctionArgs) {
   const api = args.context.bknd.apiUI;
 
   const { data: articles } = await api.data.readMany("articles", {
-    select: ["id", "title_t", "content_t", "tags"],
-    where: { id: args.params.id, status: "PUBLISHED" },
+    select: ["id", "handle", "title_t", "content_t", "tags", "publish_at"],
+    where: { handle: args.params.id, status: "PUBLISHED" },
     with: {
       cover: {
         select: ["path"],
@@ -15,16 +15,20 @@ async function pressLoader(args: LoaderFunctionArgs) {
       gallery: {
         select: ["path"],
       },
+      team: {
+        select: ["name", "position"],
+        with: {
+          avatar: {
+            select: ["path"],
+          },
+        },
+      },
     },
   });
 
-  return transformContent(
-    {
-      id: args.params.id,
-      articles,
-    },
-    language,
-  );
+  if (!articles.length) return null;
+
+  return transformContent(articles[0], language);
 }
 
 export default pressLoader;

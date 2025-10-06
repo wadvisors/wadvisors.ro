@@ -1,9 +1,21 @@
 import type { Route } from "./+types/_.blog._index";
-import { useRouteLoaderData } from "react-router";
+import {
+  useLoaderData,
+  useRouteLoaderData,
+  type LoaderFunction,
+} from "react-router";
 import Markdown from "~/components/Markdown";
+import Link from "~/components/Link";
+import Card from "~/components/Card";
+import articlesLoader from "~/loaders/articlesLoader";
+
+export const loader: LoaderFunction = articlesLoader;
 
 export default function Blog({}) {
   const { page = {} } = useRouteLoaderData("routes/_");
+  const articles = useLoaderData();
+
+  if (!articles) return null;
 
   return (
     <div className="site-container md:pt-12 pt-8">
@@ -18,6 +30,14 @@ export default function Blog({}) {
           },
         }}
       />
+
+      <div className="grid gap-12 md:grid-cols-3 lg:gap-16">
+        {articles.map((record: any) => (
+          <Card key={record.id} tags={false} record={record} />
+        ))}
+      </div>
+
+      <pre>{JSON.stringify(articles, null, 2)}</pre>
     </div>
   );
 }

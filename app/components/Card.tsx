@@ -1,10 +1,12 @@
 import { useRouteLoaderData } from "react-router";
 import Tags from "./Tags";
+import Link from "./Link";
 
 interface CardProps {
   tags: boolean;
   record: {
     id: number;
+    handle: string;
     title: string;
     publish_at: string;
     cover: {
@@ -23,11 +25,14 @@ export default function Card({ record, tags = false }: CardProps) {
 
   return (
     <article className="relative flex text-center  flex-col space-y-4 transition-opacity hover:not-tag-hover:opacity-80">
-      <a className="after:absolute after:inset-0 after:z-10" href="/link/">
+      <Link
+        className="after:absolute after:inset-0 after:z-10"
+        to={`/blog/${record.handle}`}
+      >
         <h3 className="text-2xl font-heading-1 text-pretty mt-2">
           {record.title}
         </h3>
-      </a>
+      </Link>
       <picture className="block overflow-hidden order-first">
         <img
           className="m-0 p-0"

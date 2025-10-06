@@ -1,5 +1,5 @@
 import { DatabaseEvents, type ModuleBuildContext, resendEmail } from "bknd";
-import { slugify } from "bknd/utils";
+import { slugify, randomString } from "bknd/utils";
 import type { CloudflareBkndConfig } from "bknd/adapter/cloudflare";
 import { cloudflareImageOptimization } from "bknd/plugins";
 import schema from "./schema/index";
@@ -74,12 +74,13 @@ export default {
           DatabaseEvents.MutatorInsertBefore,
           async ({ params: { entity, data } }) => {
             switch (entity.name) {
+              case "articles":
               case "pages":
                 return {
                   ...data,
                   ...(data.title_t?.en && {
                     title: data.title_t.en,
-                    handle: slugify(data.title_t.en),
+                    handle: slugify(`${data.title_t.en}`),
                   }),
                 };
               case "clients":
@@ -89,7 +90,6 @@ export default {
                     handle: slugify(data.title),
                   }),
                 };
-              case "articles":
               case "showcases":
               case "press":
                 return {
@@ -114,6 +114,7 @@ export default {
           DatabaseEvents.MutatorUpdateBefore,
           async ({ params: { entity, data } }) => {
             switch (entity.name) {
+              case "articles":
               case "pages":
                 return {
                   ...data,
@@ -129,7 +130,6 @@ export default {
                     handle: slugify(data.title),
                   }),
                 };
-              case "articles":
               case "showcases":
               case "press":
                 return {

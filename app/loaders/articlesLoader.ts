@@ -1,11 +1,11 @@
 import { type LoaderFunctionArgs } from "react-router";
 import transformContent from "~/utils/get-content";
 
-async function pressLoader(args: LoaderFunctionArgs) {
+async function articlesLoader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
   const api = args.context.bknd.apiUI;
 
-  const { data: featuredArticles } = await api.data.readMany("articles", {
+  const { data: articles } = await api.data.readMany("articles", {
     select: ["id", "handle", "title_t", "tags", "publish_at"],
     where: { status: "PUBLISHED" },
     with: {
@@ -14,15 +14,12 @@ async function pressLoader(args: LoaderFunctionArgs) {
       },
     },
     sort: "publish_at",
-    limit: 4,
+    limit: 100,
   });
 
-  return transformContent(
-    {
-      featuredArticles,
-    },
-    language,
-  );
+  if (!articles.length) return null;
+
+  return transformContent(articles, language);
 }
 
-export default pressLoader;
+export default articlesLoader;

@@ -43,10 +43,11 @@ export default em(
     relation(pages).polyToMany(media, {
       mappedBy: "gallery",
     });
+    relation(articles).manyToOne(team);
     relation(articles).polyToMany(media, {
       mappedBy: "gallery",
     });
-    relation(articles).manyToMany(users).polyToOne(media, {
+    relation(articles).polyToOne(media, {
       mappedBy: "cover",
     });
     relation(users).polyToOne(media, {
@@ -88,6 +89,7 @@ export default em(
     index(clients).on(["active"]);
     index(clients).on(["order"]);
     index(clients).on(["handle"], true);
+    index(articles).on(["handle"], true);
     index(articles).on(["status"]);
     index(articles).on(["publish_at"]);
     index(subscribers).on(["email"], true);
