@@ -30,7 +30,7 @@ export default function Blog() {
               return (
                 <article
                   key={el.id}
-                  className="shadow flex flex-col rounded-lg overflow-hidden items-center relative bg-base-50/50"
+                  className="shadow flex flex-col rounded-lg overflow-hidden items-center relative bg-white"
                 >
                   <header className="order-last w-full p-4 flex flex-col items-start">
                     <strong className="font-extralight text-xs text-base-300">
@@ -41,7 +41,7 @@ export default function Blog() {
                     </h3>
                     <Link
                       to={`/case-studies/${el.id}`}
-                      className="button--secondary button group gap-2 inline-flex text-sm mt-2 hover:underline"
+                      className="button--secondary mt-auto button group gap-2 inline-flex text-sm mt-2 hover:underline"
                     >
                       Show more &rarr;
                     </Link>
