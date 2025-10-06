@@ -1,31 +1,44 @@
-export default function Gallery({ gallery = [] }) {
+import { useState } from "react";
+
+import { RowsPhotoAlbum, MasonryPhotoAlbum } from "react-photo-album";
+import Lightbox from "yet-another-react-lightbox";
+import "react-photo-album/masonry.css";
+import "yet-another-react-lightbox/styles.css";
+
+// optional lightbox plugins
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+export default function Gallery({ className = "", gallery = [] }) {
   if (!gallery.length) return null;
 
-  const chunkSize = 3;
-  const chunks = [];
+  const [index, setIndex] = useState(-1);
 
-  for (let i = 0; i < gallery.length; i += chunkSize) {
-    chunks.push(gallery.slice(i, i + chunkSize));
-  }
+  const photos = gallery.map((img) => ({
+    src: `/api/_plugin/image/optimize/${encodeURIComponent(img?.path)}?width=512&fit=scale-down`,
+    width: img.metadata.width,
+    height: img.metadata.height,
+    alt: "",
+  }));
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 my-4 w-full">
-      {chunks.map((group) => {
-        return (
-          <div className="grid gap-4">
-            {group.map((img: any) => (
-              <div>
-                <img
-                  key={img.path}
-                  className="h-auto max-w-full rounded-lg grayscale hover:grayscale-0 cursor-pointer"
-                  loading="lazy"
-                  src={`/api/_plugin/image/optimize/${encodeURIComponent(img.path)}?width=512&fit=scale-down`}
-                />
-              </div>
-            ))}
-          </div>
-        );
-      })}
+    <div className={className}>
+      <MasonryPhotoAlbum
+        photos={photos}
+        onClick={({ index }) => setIndex(index)}
+      />
+
+      <Lightbox
+        slides={photos}
+        open={index >= 0}
+        index={index}
+        close={() => setIndex(-1)}
+        // enable optional lightbox plugins
+        plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+      />
     </div>
   );
 }

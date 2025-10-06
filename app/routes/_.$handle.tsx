@@ -13,7 +13,7 @@ export default function Generic() {
         overrides={{
           h1: {
             props: {
-              className: "uppercase h2 text-pretty text-center mb-12",
+              className: "h2 text-pretty text-center mb-12",
             },
           },
         }}
