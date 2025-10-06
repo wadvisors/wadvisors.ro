@@ -13,8 +13,8 @@ async function pressLoader(args: LoaderFunctionArgs) {
         select: ["path"],
       },
     },
-    sort: "publish_at",
-    limit: 4,
+    sort: "-publish_at",
+    limit: 3,
   });
 
   return transformContent(

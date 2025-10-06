@@ -13,7 +13,7 @@ async function articlesLoader(args: LoaderFunctionArgs) {
         select: ["path"],
       },
     },
-    sort: "publish_at",
+    sort: "-publish_at",
     limit: 100,
   });
 
