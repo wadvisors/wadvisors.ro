@@ -30,23 +30,23 @@ export default function Blog() {
               return (
                 <article
                   key={el.id}
-                  className="shadow flex flex-col rounded-lg overflow-hidden items-center relative bg-white"
+                  className="shadow flex flex-col rounded-lg overflow-hidden items-center relative bg-base-50/50"
                 >
                   <header className="order-last w-full p-4 flex flex-col items-start">
                     <strong className="font-extralight text-xs text-base-300">
                       {el.clients.title}
                     </strong>
-                    <h3 className="font-heading-1 text-xl mt-0 m-0 text-pretty">
+                    <h3 className="font-heading-1 text-xl mt-0 m-0 text-pretty mb-2">
                       {el.title}
                     </h3>
                     <Link
                       to={`/case-studies/${el.id}`}
-                      className="button--secondary mt-auto button group gap-2 inline-flex text-sm mt-2 hover:underline"
+                      className="button--secondary mt-auto button group gap-2 inline-flex text-sm hover:underline"
                     >
                       Show more &rarr;
                     </Link>
                   </header>
-                  <picture className="aspect-square overflow-hidden flex justify-center items-center bg-base-50 border-b border-b-base-50 relative">
+                  <picture className="aspect-square overflow-hidden flex justify-center items-center bg-white border-b border-b-base-50 relative">
                     <img
                       className="m-0 p-0 w-full h-auto"
                       loading="lazy"
