@@ -30,7 +30,7 @@ export default function Blog({}) {
           },
         }}
       />
-      <div className="grid gap-12 md:grid-cols-2 lg:gap-16">
+      <div className="grid gap-12 mt-12 md:grid-cols-2 lg:gap-16">
         {articles.map((record: any) => (
           <Card key={record.id} tags={false} record={record} />
         ))}
