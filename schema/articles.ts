@@ -78,7 +78,7 @@ export default {
     cover: medium({
       label: "Cover",
       min_items: 1,
-      mime_types: ["image/png", "image/jpg", "image/jpeg"],
+      mime_types: ["image/png", "image/webp", "image/jpg", "image/jpeg"],
     }),
     gallery: media({
       max_items: 50,
