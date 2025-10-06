@@ -18,7 +18,10 @@ export default function Footer() {
       <div className="site-container py-8 w-full flex-col md:flex-row flex justify-between gap-4">
         <div className="flex flex-col">
           <h4 className="h4 mb-2">Stay in touch.</h4>
-          <span>&copy; {new Date().getFullYear()}</span>
+          <span>
+            &copy; 2012 - {new Date().getFullYear()} W Advisors. All Rights
+            Reserved.
+          </span>
         </div>
         <div className="flex flex-col gap-4">
           <h4 className="h4 mb-2">Questions?</h4>
