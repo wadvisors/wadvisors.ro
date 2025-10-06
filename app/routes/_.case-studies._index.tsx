@@ -24,7 +24,7 @@ export default function Blog() {
           },
         }}
       />
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-4 gap-8 mt-12">
         {showcases.length
           ? showcases.map((el) => {
               return (
