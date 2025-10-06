@@ -30,14 +30,11 @@ export default function Blog({}) {
           },
         }}
       />
-
       <div className="grid gap-12 md:grid-cols-3 lg:gap-16">
         {articles.map((record: any) => (
           <Card key={record.id} tags={false} record={record} />
         ))}
       </div>
-
-      <pre>{JSON.stringify(articles, null, 2)}</pre>
     </div>
   );
 }
