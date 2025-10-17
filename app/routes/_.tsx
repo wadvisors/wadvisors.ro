@@ -30,9 +30,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Layout() {
-  return (
-    <BaseLayout>
-      <Outlet />
-    </BaseLayout>
-  );
+  return <BaseLayout>{<Outlet />}</BaseLayout>;
 }

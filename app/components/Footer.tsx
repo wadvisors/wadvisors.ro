@@ -14,9 +14,9 @@ export default function Footer() {
   const { pages, language } = useRouteLoaderData("routes/_");
 
   return (
-    <footer className="bg-base-100/40 justify-center py-8 w-full">
-      <div className="site-container py-8 w-full flex-col md:flex-row flex justify-between gap-4">
-        <div className="flex flex-col">
+    <footer className="bg-base-100/40 justify-center py-4 md:py-8 w-full">
+      <div className="site-container py-4 md:py-8 w-full flex-col md:flex-row flex justify-between gap-4">
+        <div className="flex flex-col order-last md:order-first">
           <h4 className="h4 mb-2">Stay in touch.</h4>
           <span>
             &copy; 2012 - {new Date().getFullYear()} W Advisors. All Rights
@@ -35,7 +35,7 @@ export default function Footer() {
           >
             Contact us
           </NavLink>
-          <div className="flex gap-4">
+          <div className="gap-4 flex">
             <a
               href="https://x.com/WAdvisors"
               target="_blank"
@@ -70,7 +70,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex-col hidden md:flex">
           <ul className="grid md:grid-cols-2 gap-2 md:gap-x-8">
             {pages.map(
               ({

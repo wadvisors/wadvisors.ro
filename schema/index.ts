@@ -8,7 +8,8 @@ import press from "./press";
 import media from "./media";
 import users from "./users";
 import team from "./team";
-import subscribers from "./subscribers";
+// import subscribers from "./subscribers";
+import snippets from "./snippets";
 
 export default em(
   {
@@ -18,7 +19,8 @@ export default em(
     ...showcases,
     ...clients,
     ...team,
-    ...subscribers,
+    // ...subscribers,
+    ...snippets,
     ...users,
     ...media,
   },
@@ -31,7 +33,8 @@ export default em(
       showcases,
       clients,
       team,
-      subscribers,
+      // subscribers,
+      snippets,
       users,
       media,
     },
@@ -92,8 +95,9 @@ export default em(
     index(articles).on(["handle"], true);
     index(articles).on(["status"]);
     index(articles).on(["publish_at"]);
-    index(subscribers).on(["email"], true);
-    index(subscribers).on(["status"]);
-    index(subscribers).on(["resend_id"], true);
+    // index(subscribers).on(["email"], true);
+    // index(subscribers).on(["status"]);
+    // index(subscribers).on(["resend_id"], true);
+    index(snippets).on(["handle"], true);
   },
 ).toJSON();

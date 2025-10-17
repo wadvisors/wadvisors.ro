@@ -37,11 +37,6 @@
     "staging": {
       "name": "staging-worker",
       "workers_dev": false,
-      "route": {
-        "pattern": "staging.wadvisors.ro",
-        "custom_domain": true,
-        "zone_name": "wadvisors.ro"
-      },
       "d1_databases": [
         {
           "binding": "DB",

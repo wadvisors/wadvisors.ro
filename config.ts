@@ -38,8 +38,6 @@ export default {
               permissions: [
                 "system.access.api",
                 "media.file.read",
-                // "media.file.upload",
-                // "data.entity.create",
                 "data.entity.read",
               ],
             },

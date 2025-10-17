@@ -19,7 +19,12 @@ const config = {
         label: "Newsletter",
         icon: TbMailFast,
         disabled: false,
-        onClick: () => (window.location.href = "/admin/data/newsletter"),
+        onClick: () =>
+          window.open(
+            "https://dashboard.emailoctopus.com/campaigns",
+            "_blank",
+            "noopener,noreferrer",
+          ),
       },
     ],
   },

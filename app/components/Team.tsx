@@ -23,7 +23,7 @@ export default function Team({}) {
             return (
               <li
                 key={id}
-                className="p-0 m-0 list-none flex md:gap-12 [&:nth-child(even)_img]:order-last"
+                className="p-0 m-0 list-none flex flex-col md:flex-row md:gap-12 md:[&:nth-child(even)_img]:order-last"
               >
                 <img
                   className="m-0 p-0 w-1/3 self-start shadow"
