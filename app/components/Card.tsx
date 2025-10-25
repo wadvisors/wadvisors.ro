@@ -4,6 +4,7 @@ import Link from "./Link";
 
 interface CardProps {
   tags: boolean;
+  className: string;
   record: {
     id: number;
     handle: string;
@@ -16,7 +17,7 @@ interface CardProps {
   };
 }
 
-export default function Card({ record, tags = false }: CardProps) {
+export default function Card({ record, tags = false, className }: CardProps) {
   const { language } = useRouteLoaderData("routes/_");
   const date = new Date(record.publish_at);
   const dateFormated = new Intl.DateTimeFormat(language, {
@@ -24,7 +25,9 @@ export default function Card({ record, tags = false }: CardProps) {
   }).format(date);
 
   return (
-    <article className="relative flex text-center  flex-col space-y-4 transition-opacity hover:not-tag-hover:opacity-80">
+    <article
+      className={`relative flex text-center flex-col space-y-4 transition-opacity hover:not-tag-hover:opacity-80 ${className}`}
+    >
       <Link
         className="after:absolute after:inset-0 after:z-10"
         to={`/blog/${record.handle}`}

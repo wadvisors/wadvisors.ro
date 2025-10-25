@@ -7,14 +7,14 @@ export default function Clients() {
   if (!clients?.length) return null;
 
   return (
-    <ol className="grid md:grid-cols-8 list-none p-0 m-0 items-center gap-8">
+    <ol className="flex gap-4 md:gap-8 list-none p-0 m-0 items-center overflow-scroll snap-x snap-mandatory">
       {clients.map(({ id, handle, title, logo }: any) => {
         if (!logo?.path) return;
 
         return (
           <li
             key={id}
-            className="flex flex-col gap-4 items-center align-center p-0"
+            className="snap-start w-1/4 md:w-1/10 flex-shrink-0 md:flex-shrink-1 flex flex-col gap-4 items-center align-center p-0"
           >
             <Link to={`/portfolio/${handle}`}>
               <figure>

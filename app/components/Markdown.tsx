@@ -1,6 +1,5 @@
 import Markdown from "markdown-to-jsx";
 import Button from "./Button";
-import Portfolio from "./Portfolio";
 import Team from "./Team";
 import Clients from "./Clients";
 
@@ -27,9 +26,6 @@ export default function MarkdownRenderer({
               rel: "noopener noreferrer",
               variant: "link",
             },
-          },
-          portfolio: {
-            component: Portfolio,
           },
           team: {
             component: Team,

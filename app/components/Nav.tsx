@@ -141,7 +141,11 @@ export default function Nav() {
 
           <div className="flex gap-8">
             <LangSwitcher />
-            <Button variant="primary" href={`/contact/?lang=${language}`}>
+            <Button
+              variant="primary"
+              className="hidden md:visible"
+              href={`/contact/?lang=${language}`}
+            >
               Contact
             </Button>
 
