@@ -37,7 +37,7 @@
 .markdown-content
   :not(h1, h2, h3, h4, h5, h6)
   + :is(h1, h2, h3, h4, h5, h6):not(:where(.not-content *)) {
-  @apply mb-4;
+  @apply mb-4 mt-8;
 }
 
 .markdown-content :is(h1):not(:where(.not-content *)) {

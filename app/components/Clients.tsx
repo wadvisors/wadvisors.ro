@@ -14,13 +14,13 @@ export default function Clients() {
         return (
           <li
             key={id}
-            className="snap-start w-1/4 md:w-1/10 flex-shrink-0 md:flex-shrink-1 flex flex-col gap-4 items-center align-center p-0"
+            className="snap-start w-1/4 md:w-1/10 flex-shrink-0 md:flex-shrink-1 gap-4 items-center align-center p-0"
           >
             <Link to={`/portfolio/${handle}`}>
               <figure>
                 <img
                   alt={title}
-                  className="m-0 p-0 self-start border-none grayscale hover:grayscale-0 cursor-pointer w-auto h-full"
+                  className="m-0 p-0 self-start border-none grayscale hover:grayscale-0 cursor-pointer w-auto h-auto"
                   loading="lazy"
                   src={`/api/_plugin/image/optimize/${encodeURIComponent(logo?.path)}?width=512&height=244&fit=scale-down`}
                 />
