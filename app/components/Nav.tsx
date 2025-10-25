@@ -143,7 +143,7 @@ export default function Nav() {
             <LangSwitcher />
             <Button
               variant="primary"
-              className="hidden md:visible"
+              className="hidden md:block"
               href={`/contact/?lang=${language}`}
             >
               Contact
