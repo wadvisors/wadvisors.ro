@@ -7,7 +7,11 @@ async function pressLoader(args: LoaderFunctionArgs) {
 
   const { data: articles } = await api.data.readMany("articles", {
     select: ["id", "handle", "title_t", "content_t", "tags", "publish_at"],
-    where: { handle: args.params.id, status: "PUBLISHED" },
+    where: {
+      handle: args.params.id,
+      status: "PUBLISHED",
+      publish_at: { $lte: new Date() },
+    },
     with: {
       cover: {
         select: ["path"],

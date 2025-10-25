@@ -13,6 +13,7 @@ export default function FeaturedArticles({ articles = [] }) {
               key={record.id}
               tags={false}
               record={record}
+              imageAspectRatio="aspect-video"
             />
           ))}
         </div>
