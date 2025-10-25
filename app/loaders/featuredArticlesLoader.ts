@@ -6,12 +6,9 @@ async function pressLoader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
   const api = args.context.bknd.apiUI;
 
-  const dateLimit = toBucharestDate();
-  console.log("toBucharestDate()", dateLimit);
-
   const { data: featuredArticles } = await api.data.readMany("articles", {
     select: ["id", "handle", "title_t", "tags", "publish_at"],
-    where: { status: "PUBLISHED", publish_at: { $lte: dateLimit } },
+    where: { status: "PUBLISHED", publish_at: { $lte: toBucharestDate() } },
     with: {
       cover: {
         select: ["path"],
