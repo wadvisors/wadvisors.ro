@@ -3,8 +3,8 @@ export default function estimateReadingTime(text = "", wpm = 180) {
   const minutes = words / wpm;
 
   if (minutes < 1) {
-    return "< 1 min read";
+    return "~ 1 min";
   }
 
-  return `${Math.ceil(minutes)} min read`;
+  return `~ ${Math.ceil(minutes)} min`;
 }
