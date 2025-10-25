@@ -1,5 +1,6 @@
 import { type LoaderFunctionArgs } from "react-router";
 import transformContent from "~/utils/get-content";
+import toBucharestDate from "~/utils/tz";
 
 async function pressLoader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
@@ -7,7 +8,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
 
   const { data: featuredArticles } = await api.data.readMany("articles", {
     select: ["id", "handle", "title_t", "tags", "publish_at"],
-    where: { status: "PUBLISHED", publish_at: { $lte: new Date() } },
+    where: { status: "PUBLISHED", publish_at: { $lte: toBucharestDate() } },
     with: {
       cover: {
         select: ["path"],

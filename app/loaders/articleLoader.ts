@@ -1,5 +1,6 @@
 import { type LoaderFunctionArgs } from "react-router";
 import transformContent from "~/utils/get-content";
+import toBucharestDate from "~/utils/tz";
 
 async function pressLoader(args: LoaderFunctionArgs) {
   const language = args.context.bknd.language;
@@ -10,7 +11,7 @@ async function pressLoader(args: LoaderFunctionArgs) {
     where: {
       handle: args.params.id,
       status: "PUBLISHED",
-      publish_at: { $lte: new Date() },
+      publish_at: { $lte: toBucharestDate() },
     },
     with: {
       cover: {

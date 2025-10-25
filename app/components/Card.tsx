@@ -2,6 +2,7 @@ import { useRouteLoaderData } from "react-router";
 import getSnippet from "~/utils/get-snippet";
 import Tags from "./Tags";
 import Link from "./Link";
+import toBucharestDate from "~/utils/tz";
 
 interface CardProps {
   tags: boolean;
@@ -26,7 +27,8 @@ export default function Card({
   imageAspectRatio = "aspect-auto",
 }: CardProps) {
   const { language, snippets } = useRouteLoaderData("routes/_");
-  const date = new Date(record.publish_at);
+
+  const date = toBucharestDate(record.publish_at);
   const dateFormated = new Intl.DateTimeFormat(language, {
     dateStyle: "medium",
   }).format(date);

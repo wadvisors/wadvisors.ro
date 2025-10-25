@@ -59,7 +59,12 @@ export default function Footer() {
           </NavLink>
           <div className="gap-4 flex">
             {socialLinks.map((el) => (
-              <a href={el.url} target="_blank" rel="noopener noreferrer">
+              <a
+                key={el.name}
+                href={el.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {socialLinkComponent[el.name]({
                   className: "size-6 transition hover:opacity-80",
                 })}
