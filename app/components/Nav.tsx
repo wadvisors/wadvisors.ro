@@ -109,7 +109,7 @@ export default function Nav() {
                 className={`
           ${open ? "visible md:bg-white/80 backdrop-blur-md md:bg-none motion-opacity-in-0 h-full top-36 motion-translate-y-in-50 flex-col text-center" : "hidden md:flex top-auto md:self-center"}
           fixed mt-0 top-0 left-0 right-0 p-8 z-20
-          md:visible md:relative md:translate-none flex md:flex-row md:p-0 md:mx-0 gap-5 md:gap-2`}
+          md:visible md:relative md:translate-none flex md:flex-row md:p-0 md:mx-0 gap-5 md:gap-6`}
               >
                 {pages.map(
                   ({
