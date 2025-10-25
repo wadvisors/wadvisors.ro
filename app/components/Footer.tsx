@@ -1,4 +1,5 @@
 import { Link, NavLink, useRouteLoaderData } from "react-router";
+import getSnippet from "~/utils/get-snippet";
 import SiteLogo from "./SiteLogo";
 import FooterLink from "./FooterLink";
 import {
@@ -11,7 +12,28 @@ import {
 
 export default function Footer() {
   const { env } = useRouteLoaderData("root");
-  const { pages, language } = useRouteLoaderData("routes/_");
+  const { pages, language, snippets } = useRouteLoaderData("routes/_");
+
+  const socialLinkComponent = {
+    "social-fb-link": TbBrandFacebook,
+    "social-insta-link": TbBrandInstagram,
+    "social-in-link": TbBrandLinkedin,
+    "social-x-link": TbBrandTwitter,
+    "social-yt-link": TbBrandYoutube,
+  };
+
+  const socialLinks = [
+    "social-fb-link",
+    "social-insta-link",
+    "social-in-link",
+    "social-x-link",
+    "social-yt-link",
+  ]
+    .map((el: string) => ({
+      name: el,
+      url: getSnippet(snippets, el, true),
+    }))
+    .filter(({ url }) => Boolean(url));
 
   return (
     <footer className="bg-base-100/40 justify-center py-4 md:py-8 w-full">
@@ -36,38 +58,14 @@ export default function Footer() {
             Contact us
           </NavLink>
           <div className="gap-4 flex">
-            <a
-              href="https://x.com/WAdvisors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TbBrandFacebook className="size-6 transition hover:opacity-80" />
-              <span className="sr-only">Facebook</span>
-            </a>
-            <a
-              href="https://x.com/WAdvisors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TbBrandTwitter className="size-6 transition hover:opacity-80" />
-              <span className="sr-only">Twitter</span>
-            </a>
-            <a
-              href="https://x.com/WAdvisors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TbBrandYoutube className="size-6 transition hover:opacity-80" />
-              <span className="sr-only">Youtube</span>
-            </a>
-            <a
-              href="https://x.com/WAdvisors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <TbBrandInstagram className="size-6 transition hover:opacity-80" />
-              <span className="sr-only">Instagram</span>
-            </a>
+            {socialLinks.map((el) => (
+              <a href={el.url} target="_blank" rel="noopener noreferrer">
+                {socialLinkComponent[el.name]({
+                  className: "size-6 transition hover:opacity-80",
+                })}
+                <span className="sr-only">{el.name}</span>
+              </a>
+            ))}
           </div>
         </div>
         <div className="flex-col hidden md:flex">

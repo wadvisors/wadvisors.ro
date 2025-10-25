@@ -53,13 +53,17 @@ async function pageLoader(args: LoaderFunctionArgs) {
     sort: "order",
   });
 
-  // console.log("--->", transformContent(page[0]), language);
+  const { data: snippets } = await api.data.readMany("snippets", {
+    select: ["id", "handle", "content_t"],
+    limit: 100,
+  });
 
   return transformContent(
     {
       language,
       page: page[0],
       team,
+      snippets,
       pages,
       clients,
     },

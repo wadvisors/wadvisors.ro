@@ -22,7 +22,7 @@ export default function EmailOctopusForm() {
 
   return (
     <div
-      className="mx-auto p-4 md:py-8 border-t w-full flex justify-center border-t-base-100"
+      className="mx-auto p-4 mt-8 md:py-8 border-t w-full flex justify-center border-t-base-100"
       ref={formContainerRef}
     />
   );

@@ -1,8 +1,12 @@
-export default function getSnippet(snippets: any, handle: string) {
+export default function getSnippet(
+  snippets: any,
+  handle: string,
+  noMissing = false,
+) {
   try {
     const { content } = snippets.find((el: any) => el.handle === handle);
     return content || `missing-snippet-${handle}`;
   } catch (e) {
-    return `missing-snippet-${handle}`;
+    return noMissing ? null : `missing-snippet-${handle}`;
   }
 }
