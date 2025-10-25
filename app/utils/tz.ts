@@ -7,5 +7,5 @@ export default function toBucharestDate(utcDate?: string) {
   // const str = date.toLocaleString("en-US", { timeZone: TZ });
   // const str = date.toLocaleString("en-US");
 
-  return datetimeStringUTC(date);
+  return date;
 }
